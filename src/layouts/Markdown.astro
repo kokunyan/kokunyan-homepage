@@ -13,7 +13,10 @@ interface ImageMetadata {
 
 <Layout>
   <article class="text-xl pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl">
-    <Image src={import(frontmatter.image.url)} alt={frontmatter.image.alt} />
+    <Image
+      src={import(`${frontmatter.image.url}`)}
+      alt={frontmatter.image.alt}
+    />
     <h1 class="text-2xl">{frontmatter.title}</h1>
     <span>{frontmatter.pubDate}</span>
     <p>{frontmatter.description}</p>
