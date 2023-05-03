@@ -28,7 +28,7 @@ import { Image } from "@astrojs/image/components";
           <article class="pb-10">
             <header class="pb-10 flex flex-col">
               <a href={`/posts/${post.slug}`}>
-                <Image
+                <img
                   src={import(post.data.image.url)}
                   alt={post.data.image.alt}
                 />
