@@ -14,7 +14,7 @@ module.exports = {
       "lightning-cloud": "#D2B9FB",
       black: "black",
       white: "white",
-      mainbg: "#0E0F13",
+      mainbg: "#2D3748",
     },
   },
   plugins: [],

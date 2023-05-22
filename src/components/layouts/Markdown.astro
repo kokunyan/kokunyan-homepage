@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+const { frontmatter } = Astro.props;
+
+interface ImageMetadata {
+  src: string;
+  width: number;
+  height: number;
+  format: string;
+}
+---
+
+<Layout pageColor="bg-black">
+  <div class="bg-black">
+    <article
+      class="text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl"
+    >
+      <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+      <h1 class="text-2xl">{frontmatter.title}</h1>
+      <span>{frontmatter.pubDate}</span>
+      <p>{frontmatter.description}</p>
+      <slot />
+      <div class="flex gap-16">
+        {
+          frontmatter.tags.map((tag) => (
+            <span class="bg-lightning p-2 rounded-md">
+              <a href={`/tags/${tag}`}>{tag}</a>
+            </span>
+          ))
+        }
+      </div>
+    </article>
+  </div>
+</Layout>
+
+<script define:vars={{ frontmatter }}>
+  const emphasized = document.querySelectorAll("em");
+  const bold = document.querySelectorAll("strong");
+
+  emphasized.forEach((element) => {
+    element.style.background = frontmatter.accent;
+    element.style.color = "black";
+  });
+
+  bold.forEach((element) => {
+    element.style.color = frontmatter.accent;
+  });
+</script>

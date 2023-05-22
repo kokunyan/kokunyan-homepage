@@ -1,11 +1,9 @@
 ---
-import Header from "@components/Header.astro";
-
 export interface Props {
   pageTitle: string;
 }
-
-const { pageTitle } = Astro.props;
+import Navbar from "@components/Navbar";
+const { pageTitle, pageColor, href } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -17,7 +15,8 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class="bg-mainbg text-white">
+  <body class=`h-screen`>
+    <Navbar href={href} />
     <slot />
   </body>
 </html>

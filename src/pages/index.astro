@@ -1,57 +1,12 @@
 ---
 import "../styles/global.css";
-import { getCollection, getEntryBySlug } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import qutie from "@assets/1.jpg";
-const ruPosts = await getCollection("blog", ({ id }) => {
-  return id.startsWith("ru/");
-});
-const enPosts = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
-});
-import { Image } from "@astrojs/image/components";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <div class="pt-20 p-6 max-w-2xl break-words m-auto">
-      <ul class="flex justify-around pb-10">
-        <li><a href="">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/works">Works</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-      <hr class="pb-20" />
-
-      {
-        enPosts.map((post) => (
-          <article class="pb-10">
-            <header class="pb-10 flex flex-col">
-              <a href={`/posts/${post.slug}`}>
-                <img src={post.data.image.url} alt={post.data.image.alt} />
-              </a>
-              <a class="mt-[35px]" href={`/posts/${post.slug}`}>
-                <h2 class="text-2xl text-black text-left leading-10">
-                  <span
-                    style={{
-                      background: `${post.data.accent}`,
-                      paddingLeft: "0.4rem",
-                      paddingRight: "0.4rem",
-                      paddingBottom: "0.2rem",
-                      display: "inline",
-                      boxDecorationBreak: "clone",
-                      lineHeight: "2.8rem",
-                    }}
-                  >
-                    {" "}
-                    {post.data.title}
-                  </span>
-                </h2>
-              </a>
-            </header>
-          </article>
-        ))
-      }
+<Layout pageTitle="Bogdan Kokunin - Homepage" href="/">
+  <main class="bg-black h-full flex flex-col">
+    <div class="w-[1025px] m-auto mt-52">
+      <h1 class="text-white">123</h1>
     </div>
   </main>
 </Layout>
