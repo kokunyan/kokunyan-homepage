@@ -24,7 +24,6 @@ export default defineConfig({
     prefetch(),
   ],
   experimental: {
-    assets: true,
     hybridOutput: true,
   },
   adapter: vercel(),
