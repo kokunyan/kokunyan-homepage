@@ -1,0 +1,13 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const paths = ["en", "jp", "ru"].map((language) => {
+    return { params: { lang: language } };
+  });
+
+  return paths;
+}
+---
+
+<Layout pageTitle="About" />

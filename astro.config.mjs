@@ -9,7 +9,7 @@ import prefetch from "@astrojs/prefetch";
 import vercel from "@astrojs/vercel/serverless";
 
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   markdown: {
     drafts: true,
   },
@@ -25,6 +25,7 @@ export default defineConfig({
   ],
   experimental: {
     assets: true,
+    hybridOutput: true,
   },
   adapter: vercel(),
 });

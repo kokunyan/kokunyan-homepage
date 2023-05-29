@@ -1,20 +1,19 @@
 ---
-export const prerender = true;
-
 import Layout from "@layouts/Layout.astro";
-
 import { getCollection } from "astro:content";
-import { getLangFromUrl, useTranslations } from "@i18n/utils";
+import { useTranslations } from "@i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
+export const prerender = false;
+
+const { lang } = Astro.params;
 const t = useTranslations(lang);
 
 const mainWorks = await getCollection("works", ({ id, data }) => {
-  return id.startsWith(`${lang}/`) && data.art !== true;
+  return id.startsWith(`${lang}`) && data.art === false;
 });
 
 const artWorks = await getCollection("works", ({ id, data }) => {
-  return id.startsWith(`${lang}/`) && data.art === true;
+  return id.startsWith(`${lang}`) && data.art === true;
 });
 ---
 

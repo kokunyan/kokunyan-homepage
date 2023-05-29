@@ -1,12 +1,12 @@
 ---
-export const prerender = true;
-
 import Layout from "@layouts/Layout.astro";
 import BlogPostPreview from "@components/BlogPostPreview.astro";
 import { getCollection } from "astro:content";
 import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
+export const prerender = false;
+
+const { lang } = Astro.params;
 const t = useTranslations(lang);
 
 const posts = await getCollection("posts", ({ id }) => {
@@ -15,10 +15,8 @@ const posts = await getCollection("posts", ({ id }) => {
 ---
 
 <Layout pageTitle="Posts">
-  <div class="h-full">
+  <div>
     {posts.map((post) => <BlogPostPreview post={post} />)}
-    <div class="flex justify-around">
-      <a class="text-white" href={`posts/2`}>More Posts</a>
-    </div>
+    <a class="text-white" href={`posts/2`}>More Posts</a>
   </div>
 </Layout>
