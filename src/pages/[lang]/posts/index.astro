@@ -6,7 +6,8 @@ import { getLangFromUrl, useTranslations } from "@i18n/utils";
 
 export const prerender = false;
 
-const { lang } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+
 const t = useTranslations(lang);
 
 const posts = await getCollection("posts", ({ id }) => {
