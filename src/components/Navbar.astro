@@ -1,0 +1,53 @@
+---
+import LanguagePicker from "@components/LanguagePicker";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const path = Astro.url.pathname;
+const activePosts = path.includes(`/${lang}/posts`);
+const activeWorks = path.includes(`/${lang}/works`);
+const activeAbout = path.includes(`/${lang}/about`);
+---
+
+<nav
+  class="fixed backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center"
+>
+  <div class="inline-flex px-[1rem] justify-between items-center w-[650px]">
+    <a href={`${t(`nav.href`)}`}>
+      <h1 class="text-white font-bold">{t(`nav.name`)}</h1>
+    </a>
+    <div class="flex items-center h-full gap-10">
+      <div class="sm:inline-flex h-full hidden">
+        <a
+          href={`${t(`nav.href`)}works`}
+          class={`${activeWorks ? "bg-white" : ""} ${
+            activeWorks ? "text-black" : "text-white"
+          } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
+        >
+          {t(`nav.works`)}
+        </a>
+
+        <a
+          href={`${t(`nav.href`)}posts`}
+          class={`${activePosts ? "bg-white" : ""} ${
+            activePosts ? "text-black" : "text-white"
+          } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
+        >
+          {t(`nav.posts`)}
+        </a>
+
+        <a
+          href={`${t(`nav.href`)}about`}
+          class={`${activeAbout ? "bg-white" : ""} ${
+            activeAbout ? "text-black" : "text-white"
+          } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
+        >
+          {t(`nav.about`)}
+        </a>
+      </div>
+    </div>
+    <LanguagePicker lang={lang} client:load />
+  </div>
+</nav>

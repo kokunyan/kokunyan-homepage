@@ -1,0 +1,28 @@
+---
+const { post } = Astro.props;
+const realSlug = post.slug.split("/")[1];
+---
+
+<article class="pb-10">
+  <header class="pb-10 flex flex-col">
+    <a class="mt-[35px]" href=`./posts/${realSlug}`>
+      <img src={post.data.image.url} alt={post.data.image.alt} class="pb-7" />
+      <h2 class="text-2xl text-black text-left leading-10">
+        <span
+          style={{
+            background: `${post.data.accent}`,
+            paddingLeft: "0.4rem",
+            paddingRight: "0.4rem",
+            paddingBottom: "0.2rem",
+            display: "inline",
+            boxDecorationBreak: "clone",
+            lineHeight: "2.8rem",
+          }}
+        >
+          {" "}
+          {post.data.title}
+        </span>
+      </h2>
+    </a>
+  </header>
+</article>

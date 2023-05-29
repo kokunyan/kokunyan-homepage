@@ -2,12 +2,16 @@
 export interface Props {
   pageTitle: string;
 }
-import Navbar from "@components/Navbar";
-const { pageTitle, pageColor, href } = Astro.props;
+
+import { getLangFromUrl } from "@i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+
+import Navbar from "@components/Navbar.astro";
+const { pageTitle } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -15,8 +19,10 @@ const { pageTitle, pageColor, href } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class=`h-screen`>
-    <Navbar href={href} />
-    <slot />
+  <body class="bg-black min-h-screen">
+    <Navbar />
+    <main class="max-w-[650px] m-auto py-[125px] px-[1rem]">
+      <slot />
+    </main>
   </body>
 </html>

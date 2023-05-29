@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+
+const currentPage = typeof Astro.params.page === "undefined" ? 1 : parseInt(Astro.params.page)
+
+// invalid page number!
+if (!currentPage || isNaN(currentPage)) {
+	return Astro.redirect("/404")
+}
+
+export async function getStaticPaths({ paginate }) {
+  const allLangs = ["en", "ru", "jp"];
+  const allPosts = await getCollection("posts");
+
+  return allLangs.map((lang) => {
+    const filteredPosts = allPosts.filter(
+      (post) => post.slug.split("/")[0] === lang
+    );
+    return paginate(filteredPosts, {
+      params: { lang },
+      pageSize: 3,
+    });
+  });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout pageTitle={`Posts - ${page.currentPage}`}>
+
+  <div class="h-full">
+    {page.data.map((post) => (
+      <article class="pb-10">
+    <header class="pb-10 flex flex-col">
+      <a class="mt-[35px]" href=`../posts/${post.slug.split("/")[1]}`>
+        <img src={post.data.image.url} alt={post.data.image.alt} class="pb-7" />
+        <h2 class="text-2xl text-black text-left leading-10">
+          <span
+            style={{
+              background: `${post.data.accent}`,
+              paddingLeft: "0.4rem",
+              paddingRight: "0.4rem",
+              paddingBottom: "0.2rem",
+              display: "inline",
+              boxDecorationBreak: "clone",
+              lineHeight: "2.8rem",
+            }}
+          >
+            {" "}
+            {post.data.title}
+          </span>
+        </h2>
+      </a>
+    </header>
+  </article>
+    ))}
+  </div>
+  {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+  {page.url.next ? <a href={page.url.next}>Next</a> : null}
+</Layout>

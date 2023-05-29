@@ -15,7 +15,12 @@ module.exports = {
       black: "black",
       white: "white",
       mainbg: "#2D3748",
+      navbar: "#D9D9D9",
+      aqua: "#03e9f4",
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: false,
+  },
 };

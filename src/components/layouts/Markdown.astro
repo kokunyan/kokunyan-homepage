@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-const { frontmatter } = Astro.props;
+const { frontmatter, lang } = Astro.props;
 
 interface ImageMetadata {
   src: string;
@@ -8,10 +8,12 @@ interface ImageMetadata {
   height: number;
   format: string;
 }
+
+const formattedDate = frontmatter.pubDate.toLocaleString(lang);
 ---
 
-<Layout pageColor="bg-black">
-  <div class="bg-black">
+<Layout href="/posts" pageTitle={frontmatter.title}>
+  <div>
     <article
       class="text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl"
     >
@@ -20,15 +22,6 @@ interface ImageMetadata {
       <span>{frontmatter.pubDate}</span>
       <p>{frontmatter.description}</p>
       <slot />
-      <div class="flex gap-16">
-        {
-          frontmatter.tags.map((tag) => (
-            <span class="bg-lightning p-2 rounded-md">
-              <a href={`/tags/${tag}`}>{tag}</a>
-            </span>
-          ))
-        }
-      </div>
     </article>
   </div>
 </Layout>
