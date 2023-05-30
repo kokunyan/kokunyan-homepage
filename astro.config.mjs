@@ -5,26 +5,20 @@ import mdx from "@astrojs/mdx";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
-
 import vercel from "@astrojs/vercel/serverless";
 
+// https://astro.build/config
 export default defineConfig({
   output: "hybrid",
   markdown: {
-    drafts: true,
+    drafts: true
   },
-  integrations: [
-    react(),
-    tailwind(),
-    mdx({
-      drafts: true,
-    }),
-    robotsTxt(),
-    sitemap(),
-    prefetch(),
-  ],
+  site: 'https://kokunin.ru',
+  integrations: [react(), tailwind(), mdx({
+    drafts: true
+  }), robotsTxt(), sitemap(), prefetch()],
   experimental: {
-    hybridOutput: true,
+    hybridOutput: true
   },
-  adapter: vercel(),
+  adapter: vercel()
 });
