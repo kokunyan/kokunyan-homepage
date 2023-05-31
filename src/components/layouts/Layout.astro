@@ -5,7 +5,7 @@ export interface Props {
   pageTitle: string;
   pageDescription: string;
   pageType: string;
-  pageImage: string;
+  ogImage?: string;
 }
 
 import { SEO } from "astro-seo";
@@ -29,7 +29,7 @@ const getLocale = (lang: string) => {
 };
 const locale = getLocale(lang);
 
-const { pageTitle, pageDescription, pageType, pageImage = "/default-og.png" } = Astro.props;
+const { pageTitle, pageDescription, pageType, ogImage } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -56,7 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Open Graph Tags -->
 <meta property="og:title" content={pageTitle} />
-<meta property="og:image" content={pageImage} />
+<meta property="og:image" content={ogImage} />
 <meta property="og:type" content={pageType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:description" content={pageDescription} />
