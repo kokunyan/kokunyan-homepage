@@ -8,7 +8,6 @@ export interface Props {
   ogImage?: string;
 }
 
-import { SEO } from "astro-seo";
 import { getLangFromUrl } from "@i18n/utils";
 import Navbar from "@components/Navbar.astro";
 
@@ -28,6 +27,7 @@ const getLocale = (lang: string) => {
   }
 };
 const locale = getLocale(lang);
+console.log(Astro.props)
 
 const { pageTitle, pageDescription, pageType, ogImage } = Astro.props;
 

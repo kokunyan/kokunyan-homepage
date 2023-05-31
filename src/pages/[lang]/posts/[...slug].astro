@@ -13,8 +13,8 @@ export async function getStaticPaths() {
 
   return paths;
 }
-
 const page = Astro.props;
+console.log(page.data)
 
 const { Content } = await page.render();
 ---
