@@ -15,12 +15,7 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://kokunin.ru',
-  integrations: [react(), tailwind(), astroOGImage({
-    config: {
-      path: "content/posts", // change this value to the folder where your posts are
-      // NOTE: index.md file will not get proccesed, so please avoid it
-    },
-  }), mdx({
+  integrations: [react(), tailwind(), mdx({
     drafts: true
   }), robotsTxt({
     host: 'kokunin.ru'
