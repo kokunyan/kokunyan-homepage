@@ -1,11 +1,12 @@
 ---
 import "@styles/global.css"
+import BaseHead from "@components/BaseHead.astro";
 
 export interface Props {
   pageTitle: string;
   pageDescription: string;
   pageType: string;
-  ogImage?: string;
+  slug: string;
 }
 
 import { getLangFromUrl } from "@i18n/utils";
@@ -14,25 +15,7 @@ import Navbar from "@components/Navbar.astro";
 // Language and locale detection
 
 const lang = getLangFromUrl(Astro.url);
-const getLocale = (lang: string) => {
-  switch (lang) {
-    case "en":
-      return "en_US";
-    case "jp":
-      return "ja_JP";
-    case "ru":
-      return "ru_RU";
-    default:
-      return "en_US";
-  }
-};
-const locale = getLocale(lang);
-console.log(Astro.props)
-
-const { pageTitle, pageDescription, pageType, ogImage } = Astro.props;
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
+const { pageTitle, pageDescription, pageType, slug } = Astro.props;
 
 ---
 
@@ -45,22 +28,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml">
     <meta name="generator" content={Astro.generator} />
+    <BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pageType={pageType} lang={lang} slug={slug} />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Primary Meta Tags -->
-<title>{pageTitle}</title>
-<meta name="title" content={pageTitle} />
-<meta name="description" content={pageDescription} />
-
-<!-- Open Graph Tags -->
-<meta property="og:title" content={pageTitle} />
-<meta property="og:image" content={ogImage} />
-<meta property="og:type" content={pageType} />
-<meta property="og:url" content={canonicalURL} />
-<meta property="og:description" content={pageDescription} />
-<meta property="og:locale" content={locale} />
   </head>
   <body class="bg-black min-h-screen">
     <Navbar />

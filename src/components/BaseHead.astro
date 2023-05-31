@@ -1,0 +1,36 @@
+---
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const getLocale = (lang: string) => {
+  switch (lang) {
+    case "en":
+      return "en_US";
+    case "jp":
+      return "ja_JP";
+    case "ru":
+      return "ru_RU";
+    default:
+      return "en_US";
+  }
+};
+
+const { pageTitle, pageDescription, pageType, lang, slug } = Astro.props;
+
+const locale = getLocale(lang);
+---
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDescription} />
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:image" content={slug !== undefined ? `/assets/your-posts-folder/${slug}.png` : `/assets/fallback-image.png`} />
+<meta property="og:type" content={pageType} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:locale" content={locale} />

@@ -6,7 +6,7 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import vercel from "@astrojs/vercel/serverless";
-
+import astroOGImage from "astro-og-image";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +15,12 @@ export default defineConfig({
     drafts: true
   },
   site: 'https://kokunin.ru',
-  integrations: [react(), tailwind(), mdx({
+  integrations: [react(), tailwind(), astroOGImage({
+    config: {
+      path: "/content/posts", // change this value to the folder where your posts are
+      // NOTE: index.md file will not get proccesed, so please avoid it
+    },
+  }), mdx({
     drafts: true
   }), robotsTxt({
     host: 'kokunin.ru'
