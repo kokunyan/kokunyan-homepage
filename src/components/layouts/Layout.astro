@@ -6,7 +6,7 @@ export interface Props {
   pageTitle: string;
   pageDescription: string;
   pageType: string;
-  slug: string;
+  pagePubDate: string;
 }
 
 import { getLangFromUrl } from "@i18n/utils";
@@ -15,7 +15,7 @@ import Navbar from "@components/Navbar.astro";
 // Language and locale detection
 
 const lang = getLangFromUrl(Astro.url);
-const { pageTitle, pageDescription, pageType, slug } = Astro.props;
+const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
 
 ---
 
@@ -28,7 +28,7 @@ const { pageTitle, pageDescription, pageType, slug } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml">
     <meta name="generator" content={Astro.generator} />
-    <BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pageType={pageType} lang={lang} slug={slug} />
+    <BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pageType={pageType} lang={lang} pagePubDate={pagePubDate} />
 
   </head>
   <body class="bg-black min-h-screen">

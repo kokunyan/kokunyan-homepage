@@ -14,9 +14,40 @@ const getLocale = (lang: string) => {
   }
 };
 
-const { pageTitle, pageDescription, pageType, lang, slug } = Astro.props;
+const getAlternativeLocales = (lang: string) => {
+  switch (lang) {
+    case "en":
+      return ["ru_RU", "ja_JP"];
+    case "jp":
+      return ["ru_RU", "en_US"];
+    case "ru":
+      return ["ja_JP", "en_US"];
+    default:
+      return ["ru_RU", "ja_JP"];
+  }
+};
+
+const getAuthor = (lang: string) => {
+  switch (lang) {
+    case "en":
+      return "Bogdan Kokunin";
+    case "jp":
+      return "コクニン ボグダン";
+    case "ru":
+      return "Богдан Кокунин";
+    default:
+      return "Bogdan Kokunin";
+  }
+};
+
+const { pageTitle, pageDescription, pageType, lang, pagePubDate } = Astro.props;
 
 const locale = getLocale(lang);
+const alternativeLocales = getAlternativeLocales(lang);
+const author = getAuthor(lang);
+const authorFirstName = author.split(" ")[0];
+const authorLastName = author.split(" ")[1];
+
 ---
 
 <!-- Canonical URL -->
@@ -29,8 +60,23 @@ const locale = getLocale(lang);
 
 <!-- Open Graph Tags -->
 <meta property="og:title" content={pageTitle} />
-<meta property="og:image" content={slug !== undefined ? `/assets/your-posts-folder/${slug}.png` : `/assets/fallback-image.png`} />
 <meta property="og:type" content={pageType} />
 <meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content="kokunin.ru" />
 <meta property="og:description" content={pageDescription} />
 <meta property="og:locale" content={locale} />
+<meta property="og:locale:alternate" content={alternativeLocales[0]} />
+<meta property="og:locale:alternate" content={alternativeLocales[1]} />
+{pageType === "article" && (
+  <meta property="article:published_time" content={pagePubDate} />
+  <meta property="article:author" content={author} />
+)}
+{pageType === "profile" && (
+  <meta property="profile:username" content={author} />
+  <meta property="profile:first_name" content={lang === "en" || 'ru' ? authorFirstName : authorLastName} />
+  <meta property="profile:last_name" content={lang === "en" || 'ru' ? authorLastName : authorFirstName} />
+  <meta property="profile:username" content="kokunin" />
+  <meta property="profile:gender" content="male" />
+)}
+<meta name="twitter:site" content="@kokunin_">
+<meta name="twitter:author" content="@kokunin_">

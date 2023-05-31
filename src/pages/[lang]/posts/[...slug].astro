@@ -19,6 +19,6 @@ const page = Astro.props;
 const { Content } = await page.render();
 ---
 
-<MarkdownLayout frontmatter={page.data} pageTitle={page.data.title} pageDescription={page.data.description} slug={page.slug} pageType="article">
+<MarkdownLayout frontmatter={page.data} pageTitle={page.data.title} pageDescription={page.data.description} pageType="article">
   <Content />
 </MarkdownLayout>

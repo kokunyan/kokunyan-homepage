@@ -14,6 +14,6 @@ if (page === undefined) {
 const { Content, headings } = await page.render();
 ---
 
-<MarkdownLayout frontmatter={page.data} pageType="article" pageTitle={page.data.title} pageDescription={page.data.description} slug={page.slug} pageType="article">
+<MarkdownLayout frontmatter={page.data} pageType="article" pageTitle={page.data.title} pageDescription={page.data.description} pageType="article">
   <Content />
 </MarkdownLayout>
