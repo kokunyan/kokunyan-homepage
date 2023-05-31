@@ -12,11 +12,26 @@ import { SEO } from "astro-seo";
 import { getLangFromUrl } from "@i18n/utils";
 import Navbar from "@components/Navbar.astro";
 
+// Language and locale detection
+
 const lang = getLangFromUrl(Astro.url);
+const getLocale = (lang: string) => {
+  switch (lang) {
+    case "en":
+      return "en_US";
+    case "jp":
+      return "ja_JP";
+    case "ru":
+      return "ru_RU";
+    default:
+      return "en_US";
+  }
+};
+const locale = getLocale(lang);
 
 const { pageTitle, pageDescription, pageType, pageImage = "/default-og.png" } = Astro.props;
 
-
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 
 ---
@@ -24,41 +39,28 @@ const { pageTitle, pageDescription, pageType, pageImage = "/default-og.png" } = 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
+       <!-- Global Metadata -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml">
     <meta name="generator" content={Astro.generator} />
-    <SEO
-    title={pageTitle}
-    description={pageDescription}
-    titleDefault="kokunin's"
-    openGraph={{
-      basic: {
-        title: pageTitle,
-        type: pageType,
-        image: pageImage,
-      },
-      optional: {
-        siteName: "kokunin.ru"
-      }
-    }}
-    twitter={{
-      creator: "@kokunin_"
-    }}
-    extend={{
-      // extending the default link tags
-      link: [{ rel: "icon", href: "/favicon.ico" }],
-      // extending the default meta tags
-      meta: [
-        {
-          name: "twitter:image",
-          content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
-        },
-        { name: "twitter:title", content: pageTitle },
-        { name: "twitter:description", content: pageDescription },
-      ],
-    }}
-  />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDescription} />
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content={pageTitle} />
+<meta property="og:image" content={pageImage} />
+<meta property="og:type" content={pageType} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:locale" content={locale} />
   </head>
   <body class="bg-black min-h-screen">
     <Navbar />
