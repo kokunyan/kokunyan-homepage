@@ -17,7 +17,7 @@ export default defineConfig({
   site: 'https://kokunin.ru',
   integrations: [react(), tailwind(), astroOGImage({
     config: {
-      path: "/content/posts", // change this value to the folder where your posts are
+      path: "content/posts", // change this value to the folder where your posts are
       // NOTE: index.md file will not get proccesed, so please avoid it
     },
   }), mdx({
