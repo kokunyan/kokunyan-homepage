@@ -23,7 +23,7 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 
-<Layout pageTitle={`Posts - ${page.currentPage}`}>
+<Layout pageTitle={`Posts - ${page.currentPage}`} pageDescription="List of posts" pageType="website">
   <div class="h-full">
     {
       page.data.map((post) => (

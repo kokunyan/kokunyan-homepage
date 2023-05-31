@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import vercel from "@astrojs/vercel/serverless";
 
+
 // https://astro.build/config
 export default defineConfig({
   output: "hybrid",
@@ -16,7 +17,9 @@ export default defineConfig({
   site: 'https://kokunin.ru',
   integrations: [react(), tailwind(), mdx({
     drafts: true
-  }), robotsTxt(), sitemap(), prefetch()],
+  }), robotsTxt({
+    host: 'kokunin.ru'
+  }), sitemap(), prefetch()],
   experimental: {
     hybridOutput: true
   },

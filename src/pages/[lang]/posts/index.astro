@@ -15,7 +15,7 @@ const posts = await getCollection("posts", ({ id }) => {
 });
 ---
 
-<Layout pageTitle="Posts">
+<Layout pageTitle="Posts" pageDescription="List of posts" pageType="website">
   <div>
     {posts.map((post) => <BlogPostPreview post={post} />)}
     <a class="text-white" href={`posts/2`}>More Posts</a>

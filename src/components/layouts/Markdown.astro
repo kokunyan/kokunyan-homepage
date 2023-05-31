@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-const { frontmatter, lang } = Astro.props;
+const { frontmatter, lang, pageType } = Astro.props;
 
 interface ImageMetadata {
   src: string;
@@ -12,7 +12,7 @@ interface ImageMetadata {
 const formattedDate = frontmatter.pubDate.toLocaleString(lang);
 ---
 
-<Layout href="/posts" pageTitle={frontmatter.title}>
+<Layout href="/posts" pageTitle={frontmatter.title} pageType={pageType}>
   <div>
     <article
       class="text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl"

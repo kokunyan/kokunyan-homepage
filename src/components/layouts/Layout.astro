@@ -1,14 +1,24 @@
 ---
+import "@styles/global.css"
 
 export interface Props {
   pageTitle: string;
+  pageDescription: string;
+  pageType: string;
+  pageImage: string;
 }
 
+import { SEO } from "astro-seo";
 import { getLangFromUrl } from "@i18n/utils";
+import Navbar from "@components/Navbar.astro";
+
 const lang = getLangFromUrl(Astro.url);
 
-import Navbar from "@components/Navbar.astro";
-const { pageTitle } = Astro.props;
+const { pageTitle, pageDescription, pageType, pageImage = "/default-og.png" } = Astro.props;
+
+
+
+
 ---
 
 <!DOCTYPE html>
@@ -17,9 +27,38 @@ const { pageTitle } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="sitemap" href="/sitemap-index.xml">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <SEO
+    title={pageTitle}
+    description={pageDescription}
+    titleDefault="kokunin's"
+    openGraph={{
+      basic: {
+        title: pageTitle,
+        type: pageType,
+        image: pageImage,
+      },
+      optional: {
+        siteName: "kokunin.ru"
+      }
+    }}
+    twitter={{
+      creator: "@kokunin_"
+    }}
+    extend={{
+      // extending the default link tags
+      link: [{ rel: "icon", href: "/favicon.ico" }],
+      // extending the default meta tags
+      meta: [
+        {
+          name: "twitter:image",
+          content: "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+        },
+        { name: "twitter:title", content: pageTitle },
+        { name: "twitter:description", content: pageDescription },
+      ],
+    }}
+  />
   </head>
   <body class="bg-black min-h-screen">
     <Navbar />

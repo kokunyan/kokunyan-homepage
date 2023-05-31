@@ -17,7 +17,7 @@ const artWorks = await getCollection("works", ({ id, data }) => {
 });
 ---
 
-<Layout pageTitle="My Works">
+<Layout pageTitle="My Works" pageDescription="My works" pageType="website">
   <div class="py-24 text-white">
     <h2 class="text-5xl pb-10">{t(`works.works`)}</h2><hr />
   </div>
