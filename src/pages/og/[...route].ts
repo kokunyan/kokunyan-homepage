@@ -1,10 +1,9 @@
 // src/pages/og/[...route].ts
 import { OGImageRoute } from "astro-og-canvas";
 
-const directory = "src/content";
 
 // Import all pages from the content directory
-const rawPages = import.meta.glob(`${directory}/**/*.md`, { eager: true });
+const rawPages = import.meta.glob(`src/content/**/*.md`, { eager: true });
 
 // Remove the /src/content prefix from the paths
 const pages = Object.entries(rawPages).reduce(
