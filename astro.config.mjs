@@ -6,7 +6,6 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
 import vercel from "@astrojs/vercel/serverless";
-import astroOGImage from "astro-og-image";
 
 // https://astro.build/config
 export default defineConfig({

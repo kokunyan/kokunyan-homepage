@@ -12,11 +12,11 @@ const activeAbout = path.includes(`/${lang}/about`);
 ---
 
 <nav
-  class="fixed backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center"
+  class="fixed px-[1.5rem] backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center"
 >
-  <div class="inline-flex px-[1rem] justify-between items-center w-[650px]">
-    <a href={`${t(`nav.href`)}`}>
-      <h1 class="text-white font-bold">{t(`nav.name`)}</h1>
+  <div class="inline-flex justify-between items-center w-[635px]">
+    <a rel="prefetch" href={`${t(`nav.href`)}`}>
+      <h1 class="text-white w-[144px] font-bold">{t(`nav.name`)}</h1>
     </a>
     <div class="flex items-center h-full gap-10">
       <div class="sm:inline-flex h-full hidden">

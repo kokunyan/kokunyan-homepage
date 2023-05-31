@@ -31,10 +31,26 @@ const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
     <BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pageType={pageType} lang={lang} pagePubDate={pagePubDate} />
 
   </head>
-  <body class="bg-black min-h-screen">
+
+  <body class="min-h-screen">
     <Navbar />
-    <main class="max-w-[650px] m-auto py-[125px] px-[1rem]">
+      <div>
+        <div class="overlay"></div>
+        <div class="bgg"></div>
+      </div>
+
+    <main class="max-w-[650px] m-auto py-[125px] px-[1rem] z-1">
+
       <slot />
+
     </main>
-  </body>
+
+
+
+
+          </body>
+
+
+
+
 </html>

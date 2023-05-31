@@ -25,7 +25,7 @@ const artWorks = await getCollection("works", ({ id, data }) => {
   <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
     {
       mainWorks.map((work) => (
-        <a href={`./works/${work.slug.split("/")[1]}`} class="pb-10">
+        <a rel="prefetch" href={`./works/${work.slug.split("/")[1]}`} class="pb-10">
           <img
             src={work.data.image.url}
             alt={work.data.image.alt}
@@ -50,7 +50,7 @@ const artWorks = await getCollection("works", ({ id, data }) => {
   <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
     {
       artWorks.map((art) => (
-        <a href={`./works/${art.slug.split("/")[1]}`} class="pb-10">
+        <a rel="prefetch" href={`./works/${art.slug.split("/")[1]}`} class="pb-10">
           <img
             src={art.data.image.url}
             alt={art.data.image.alt}

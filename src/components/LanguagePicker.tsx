@@ -41,7 +41,7 @@ export default function LanguagePicker() {
       >
         {Object.entries(languages).map(([code, name]) => (
           <li key={code}>
-            <a className="active:bg-white" onClick={() => changeLanguage(code)}>
+            <a rel="prefetch" className="active:bg-white" onClick={() => changeLanguage(code)}>
               {name}
             </a>
           </li>
