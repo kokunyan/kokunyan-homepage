@@ -15,7 +15,7 @@ const formattedDate = frontmatter.pubDate.toLocaleString(lang);
 <Layout pageTitle={frontmatter.title} pageDescription={frontmatter.description} pageType={pageType} pagePubDate={formattedDate} >
   <div>
     <article
-      class="text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl"
+      class=`text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl ${lang === "en" || "ru" ? "font-mono" : "font-japanese"}`
     >
       <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
       <h1 class="text-2xl">{frontmatter.title}</h1>

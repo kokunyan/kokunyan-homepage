@@ -32,14 +32,16 @@ const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
 
   </head>
 
-  <body class="min-h-screen">
+
+
+  <body class="min-h-screen ">
     <Navbar />
       <div>
         <div class="overlay"></div>
         <div class="bgg"></div>
       </div>
 
-    <main class="max-w-[650px] m-auto py-[125px] px-[1rem] z-1">
+    <main class=`max-w-[650px] m-auto px-[1.5rem] z-1 ${lang === "en" || "ru" ? "font-mono " : "font-japanese"}`>
 
       <slot />
 

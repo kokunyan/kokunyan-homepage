@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mplus: ["'M PLUS Rounded 1c'", "verdana", "sans-serif"],
-      },
+        'japanese': ["'ヒラギノ角ゴ ProN'" , "'Hiragino Kaku Gothic ProN'" , "'游ゴシック'" , "'游ゴシック体'" , 'YuGothic' , "'Yu Gothic'" , "'メイリオ'" , 'Meiryo' , "'ＭＳ ゴシック'" , "'MS Gothic'" , "'HiraKakuProN-W3'" , "'TakaoExゴシック'" , "'TakaoExGothic'" , "'MotoyaLCedar'" , "'Droid Sans Japanese'" , 'sans-serif'],
+      }
+
     },
     colors: {
       "deep-purple": "#181921",

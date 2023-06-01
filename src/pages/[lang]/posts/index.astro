@@ -16,8 +16,8 @@ const posts = await getCollection("posts", ({ id }) => {
 ---
 
 <Layout pageTitle="Posts" pageDescription="List of posts" pageType="website">
-  <div>
-    {posts.map((post) => <BlogPostPreview post={post} />)}
+  <div class="md:py-[125px] py-[70px]">
+    {posts.map((post) => <BlogPostPreview post={post} lang={lang} />)}
     <a rel="prefetch" class="text-white" href={`posts/2`}>More Posts</a>
   </div>
 </Layout>
