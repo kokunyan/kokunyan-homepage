@@ -51,8 +51,21 @@ const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
 
 
           </body>
+         
 
-
-
+          
 
 </html>
+
+<style is:inline>
+  body {
+    visibility: visible;
+  }
+</style>
+
+<style is:global>
+  body {
+    visibility: hidden;
+
+  }
+</style>
