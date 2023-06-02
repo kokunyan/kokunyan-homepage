@@ -3,19 +3,13 @@ const { t } = Astro.props;
 
 ---
 <div class="dropdown dropdown-bottom dropdown-end sm:hidden">
-  <label class="btn bg-base-100 border-none swap swap-rotate">
-  
-    <!-- this hidden checkbox controls the state -->
-    <input type="checkbox" />
-    
-    <!-- hamburger icon -->
-    <svg class="swap-off fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
-    
-    <!-- close icon -->
-    <svg class="swap-on fill-current" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49"/></svg>
-    
-  </label>
-  <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+  <label
+        tabindex={0}
+        class="bg-transparent border-none cursor-pointer flex gap-4"
+      >
+      <svg height="38" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="38"><g id="layer1" transform="translate(0,-284.29998)"><path d="m 2.8222223,287.1222 v 1.41111 h 7.0555558 v -1.41111 z m 0,2.82222 v 1.41112 h 7.0555558 v -1.41112 z m 0,2.82223 v 1.41111 h 7.0555558 v -1.41111 z" id="rect4487" style="opacity:1;vector-effect:none;fill:white;fill-opacity:1;stroke:none;stroke-width:0.07055555;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/></g></svg>
+      </label>
+  <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-[250]">
     <li><a
       href={`${t(`nav.href`)}works`}
       class="active:bg-white"
