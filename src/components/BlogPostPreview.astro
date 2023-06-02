@@ -8,7 +8,7 @@ const accent = `${post.data.accent}`
   <header class="pb-10 flex flex-col">
     <a rel="prefetch" class="mt-[35px]" href=`./posts/${realSlug}`>
       <img src={post.data.image.url} alt={post.data.image.alt} />
-      <h2 class=`text-2xl text-black text-left leading-10 pt-7`>
+      <h2 class=`text-2xl text-black ${lang === 'jp' && "font-bold"} text-left leading-10 pt-7`>
         <span
           style={{
             background: `${post.data.accent}`,

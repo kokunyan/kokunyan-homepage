@@ -1,4 +1,21 @@
-  
+@font-face {
+	font-family: 'PTMono';
+	src: 
+		url('/fonts/pt-mono_regular.woff2') format('woff2'),
+		url('/fonts/pt-mono_regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PTMono';
+	src: 
+		url('/fonts/pt-mono_bold.woff2') format('woff2'),
+		url('/fonts/pt-mono_bold.woff') format('woff');
+	font-weight: bold;
+	font-style: bold;
+}
+
 .bgg {
   position: fixed;
   z-index: -2;

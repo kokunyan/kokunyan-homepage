@@ -40,17 +40,10 @@ const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
         <div class="overlay"></div>
         <div class="bgg"></div>
       </div>
-
-    <main class=`max-w-[650px] m-auto px-[1.5rem] z-1 ${lang === "en" || "ru" ? "font-mono " : "font-japanese"}`>
-
+    <main class=`max-w-[650px] m-auto px-[1.5rem] z-1 ${lang === "jp" && "font-japanese"}`>
       <slot />
-
     </main>
-
-
-
-
-          </body>
+  </body>
          
 
           
@@ -66,6 +59,6 @@ const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
 <style is:global>
   body {
     visibility: hidden;
-
+    font-family: "PTMono";
   }
 </style>

@@ -17,8 +17,8 @@ export default function LanguagePicker() {
         className="bg-transparent border-none cursor-pointer flex gap-4"
       >
         <svg
-          width="30"
-          height="28"
+          width="28"
+          height="26"
           viewBox="0 0 60 58"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
