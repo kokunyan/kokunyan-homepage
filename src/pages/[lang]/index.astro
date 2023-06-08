@@ -1,15 +1,90 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import Layout from '@layouts/Layout.astro'
 
 export async function getStaticPaths() {
-  const paths = ["en", "jp", "ru"].map((language) => {
-    return { params: { lang: language } };
-  });
+  const paths = ['en', 'ja', 'ru'].map((language) => {
+    return { params: { lang: language } }
+  })
 
-  return paths;
+  return paths
 }
+
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
-<Layout pageTitle="index page" pageDescription="Main page of my personal site" pageType="website">
-  <h1>index page</h1>
+<Layout
+  pageTitle="index page"
+  pageDescription="Main page of my personal site"
+  pageType="website"
+  fullWidth={true}
+>
+  <div class="flex flex-col justify-center items-center h-screen">
+    <h1
+      class=`2xl:text-[12rem] lg:text-[10rem] md:text-[6rem] sm:text-[5rem] text-[3.5rem] ${lang === "ja" && "text-[10rem]"} text-white`
+    >
+      {t(`main.first`)}
+    </h1>
+    <p class="2xl:text-[2rem]">{t(`main.second`)}</p>
+    <p class="2xl:text-[2rem]">{t(`main.third`)}</p>
+    <span class="text-4xl py-10">🐤</span>
+    <ul class="flex flex-col text-center pb-10">
+      <li><a href=`/${lang}/about`>{t(`main.linkAbout`)}</a></li>
+      <li class=`${lang === "ja" && "order-first"}`>
+        <a href=`/${lang}/works`>{t(`main.linkWorks`)}</a>
+      </li>
+      <li><a href=`/${lang}/posts`>{t(`main.linkPosts`)}</a></li>
+    </ul>
+    <ul class="flex items-center gap-5">
+      <li>
+        <a href="mailto:bogdan@kokunin.ru"
+          ><svg
+            width="41"
+            height="22"
+            viewBox="0 0 66 49"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M55 0H11C4.95 0 0 4.9 0 10.8889V38.1111C0 44.1 4.95 49 11 49H55C61.05 49 66 44.1 66 38.1111V10.8889C66 4.9 61.05 0 55 0ZM59.4 15.7889L37.675 30.2167C36.3 31.0333 34.65 31.5778 33 31.5778C31.35 31.5778 29.7 31.0333 28.325 30.2167L6.6 15.7889C5.5 14.9722 5.225 13.3389 6.05 11.9778C6.875 10.8889 8.525 10.6167 9.9 11.4333L31.625 25.8611C32.45 26.4056 33.825 26.4056 34.65 25.8611L56.375 11.4333C57.75 10.6167 59.4 10.8889 60.225 12.25C60.775 13.3389 60.5 14.9722 59.4 15.7889Z"
+              fill="white"></path>
+          </svg>
+        </a>
+      </li>
+
+      <li>
+        <a href="https://github.com/kokunyan"
+          ><svg
+            width="30"
+            height="29"
+            viewBox="0 0 60 59"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M30.0248 0C13.4219 0 0 13.5208 0 30.2478C0 43.6186 8.59985 54.9368 20.5301 58.9426C22.0217 59.2437 22.5681 58.2918 22.5681 57.491C22.5681 56.7897 22.5189 54.3861 22.5189 51.8817C14.1667 53.6849 12.4275 48.2759 12.4275 48.2759C11.0852 44.7704 9.09644 43.8694 9.09644 43.8694C6.36277 42.0164 9.29556 42.0164 9.29556 42.0164C12.3279 42.2168 13.9191 45.1213 13.9191 45.1213C16.603 49.7282 20.9278 48.4265 22.6677 47.6251C22.9159 45.672 23.7118 44.3199 24.5569 43.5689C17.8954 42.8676 10.8867 40.2636 10.8867 28.645C10.8867 25.3398 12.079 22.6356 13.9682 20.5325C13.6702 19.7815 12.626 16.676 14.2669 12.5196C14.2669 12.5196 16.8021 11.7182 22.5183 15.6245C24.9656 14.9624 27.4895 14.6256 30.0248 14.6227C32.56 14.6227 35.1443 14.9736 37.5307 15.6245C43.2476 11.7182 45.7827 12.5196 45.7827 12.5196C47.4237 16.676 46.3789 19.7815 46.0808 20.5325C48.0198 22.6356 49.1629 25.3398 49.1629 28.645C49.1629 40.2636 42.1542 42.8172 35.443 43.5689C36.5369 44.5202 37.4809 46.3228 37.4809 49.1775C37.4809 53.2338 37.4318 56.4892 37.4318 57.4903C37.4318 58.2918 37.9788 59.2437 39.4697 58.9432C51.4 54.9361 59.9999 43.6186 59.9999 30.2478C60.049 13.5208 46.578 0 30.0248 0Z"
+              fill="white"></path>
+          </svg></a
+        >
+      </li>
+      <li>
+        <a href="https://t.me/kokunin"
+          ><svg
+            width="35"
+            height="23"
+            viewBox="0 0 64 53"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M63.8176 4.82496L54.1596 49.8007C53.431 52.9749 51.5308 53.765 48.8306 52.2696L34.115 41.5617L27.0144 48.3053C26.2286 49.0812 25.5714 49.7301 24.057 49.7301L25.1142 34.931L52.3881 10.5951C53.5739 9.55108 52.1309 8.97266 50.545 10.0166L16.8277 30.9809L2.31216 26.4946C-0.845265 25.5211 -0.902414 23.3767 2.96936 21.8813L59.7459 0.282241C62.3747 -0.691199 64.6749 0.860661 63.8176 4.82496Z"
+              fill="white"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
 </Layout>

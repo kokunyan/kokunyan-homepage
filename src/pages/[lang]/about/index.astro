@@ -1,0 +1,80 @@
+---
+import Layout from '@layouts/Layout.astro'
+import Born from './_translations/born.astro'
+import KFU from './_translations/kfu.astro'
+import KU from './_translations/ku.astro'
+import Coding from './_translations/coding.astro'
+
+export async function getStaticPaths() {
+  const paths = ['en', 'ja', 'ru'].map((language) => {
+    return { params: { lang: language } }
+  })
+
+  return paths
+}
+
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout
+  pageTitle="About"
+  pageDescription="Page about me ob my personal site"
+  pageType="profile"
+>
+  <div class="h-screen flex items-center">
+    <div class="flex flex-col gap-5">
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium flex justify-between">
+          <h2>🐤 {t(`about.bornTitle`)}</h2>
+          <span>{t(`about.bornDate`)}</span>
+        </div>
+        <div class="collapse-content">
+          <Born lang={lang} />
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium flex justify-between">
+          <h2 class="">🎓 {t(`about.kfuTitle`)}</h2>
+          <span class="">{t(`about.kfuDate`)}</span>
+        </div>
+        <div class="collapse-content">
+          <KFU lang={lang} />
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium flex justify-between">
+          <h2>🇯🇵 {t(`about.kuTitle`)}</h2>
+          <span>{t(`about.kuDate`)}</span>
+        </div>
+        <div class="collapse-content">
+          <KU lang={lang} />
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium flex justify-between">
+          <h2>👨‍💻 {t(`about.codingTitle`)}</h2>
+          <span>{t(`about.codingDate`)}</span>
+        </div>
+        <div class="collapse-content">
+          <Coding lang={lang} />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:inline>
+  a {
+    color: #ff3e00;
+    z-index: 1000;
+  }
+  div {
+    z-index: 0;
+  }
+</style>

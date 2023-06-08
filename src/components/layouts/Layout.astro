@@ -1,64 +1,69 @@
 ---
-import "@styles/global.css"
-import BaseHead from "@components/BaseHead.astro";
+import '@styles/global.css'
+import BaseHead from '@components/BaseHead.astro'
+import github from ''
 
 export interface Props {
-  pageTitle: string;
-  pageDescription: string;
-  pageType: string;
-  pagePubDate: string;
+  pageTitle: string
+  pageDescription: string
+  pageType: string
+  pagePubDate?: string
+  fullWidth?: boolean
 }
 
-import { getLangFromUrl } from "@i18n/utils";
-import Navbar from "@components/Navbar.astro";
+import { getLangFromUrl, useTranslations } from '@i18n/utils'
+import Navbar from '@components/Navbar.astro'
 
-// Language and locale detection
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const lang = getLangFromUrl(Astro.url);
-const { pageTitle, pageDescription, pageType, pagePubDate } = Astro.props;
-
+const { pageTitle, pageDescription, pageType, pagePubDate, fullWidth } =
+  Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
   <head>
-       <!-- Global Metadata -->
-
+    <!-- Global Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="sitemap" href="/sitemap-index.xml">
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <BaseHead pageTitle={pageTitle} pageDescription={pageDescription} pageType={pageType} lang={lang} pagePubDate={pagePubDate} />
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <BaseHead
+      pageTitle={pageTitle}
+      pageDescription={pageDescription}
+      pageType={pageType}
+      lang={lang}
+      pagePubDate={pagePubDate}
+    />
   </head>
 
-
-
-  <body class="min-h-screen ">
-    <Navbar />
-      <div>
-        <div class="overlay"></div>
-        <div class="bgg"></div>
-      </div>
-    <main class=`max-w-[670px] m-auto px-[1.5rem] z-1 ${lang === "jp" && "font-japanese"}`>
+  <body class="min-h-screen">
+    <Navbar lang={lang} t={t} />
+    <div>
+      <div class="overlay"></div>
+      <div class="bgg"></div>
+    </div>
+    <main
+      class=`m-auto px-[1.5rem] z-1 ${lang === "ja" && "font-japanese"} ${!fullWidth ? "max-w-[670px]" : "w-screen"}`
+    >
       <slot />
     </main>
+    <style is:inline>
+      body {
+        visibility: visible;
+      }
+    </style>
+
+    <style is:global>
+      body {
+        visibility: hidden;
+        font-family: 'PTMono';
+      }
+    </style>
   </body>
-         
-
-          
-
 </html>
-
-<style is:inline>
-  body {
-    visibility: visible;
-  }
-</style>
-
-<style is:global>
-  body {
-    visibility: hidden;
-    font-family: "PTMono";
-  }
-</style>

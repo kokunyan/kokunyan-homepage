@@ -1,0 +1,77 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+<div class="pt-4">
+    {
+        lang == 'ru' ? (
+            <p>
+                В{' '}
+                <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82">
+                    университете
+                </a>{' '}
+                я изучал экономику стран Азиатско-Тихоокеанского региона,
+                специализируяьсь на Японии. За это время я успел выучить
+                японский язык до уровня{' '}
+                <a href="https://drive.google.com/file/d/1DTxpl0k0Eh06uMGBDU4JsQceQ5sBFH0b/view?usp=drive_link">
+                    JLPT N2
+                </a>{' '}
+                и неоднократно побывал в роли{' '}
+                <a href="https://drive.google.com/file/d/1Z08GRmzZ9MeAwdIof_5oI0vatqd6w-c2/view?usp=drive_link">
+                    организатора
+                </a>{' '}
+                и{' '}
+                <a href="https://drive.google.com/file/d/1AV5Z6Lmt2k6RiEb_Bnil1eElXRBIilg1/view?usp=drive_link">
+                    участника
+                </a>{' '}
+                разного рода международных мероприятий. Моя дипломная работа
+                была посвещена изменениям на современном рынке труда Японии.
+            </p>
+        ) : lang == 'en' ? (
+            <p>
+                In{' '}
+                <a href="https://en.wikipedia.org/wiki/Kazan_Federal_University">
+                    university
+                </a>
+                , I studied the economies of countries in the Asia-Pacific
+                region, with a specialization in Japan. During that time, I
+                managed to reach proficiency in the Japanese language up to{' '}
+                <a href="https://drive.google.com/file/d/1DTxpl0k0Eh06uMGBDU4JsQceQ5sBFH0b/view?usp=drive_link">
+                    JLPT N2
+                </a>{' '}
+                level and have been involved as both an{' '}
+                <a href="https://drive.google.com/file/d/1Z08GRmzZ9MeAwdIof_5oI0vatqd6w-c2/view?usp=drive_link">
+                    organaizer
+                </a>{' '}
+                and
+                <a href="https://drive.google.com/file/d/1AV5Z6Lmt2k6RiEb_Bnil1eElXRBIilg1/view?usp=drive_lin">
+                    participant
+                </a>{' '}
+                in various international events. My thesis focused on the
+                changes in the modern labor market of Japan.
+            </p>
+        ) : lang == 'ja' ? (
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Kazan_Federal_University">
+                    大学
+                </a>
+                では、アジア太平洋地域の国々の経済を専攻し、特に日本について研究しました。その間に、日本語能力試験の
+                <a href="https://drive.google.com/file/d/1DTxpl0k0Eh06uMGBDU4JsQceQ5sBFH0b/view?usp=drive_link">
+                    N2レベル
+                </a>
+                まで日本語を習得し、さまざまな国際イベントの
+                <a href="https://drive.google.com/file/d/1Z08GRmzZ9MeAwdIof_5oI0vatqd6w-c2/view?usp=drive_link">
+                    主催者
+                </a>
+                や
+                <a href="https://drive.google.com/file/d/1AV5Z6Lmt2k6RiEb_Bnil1eElXRBIilg1/view?usp=drive_lin">
+                    参加者
+                </a>
+                として何度も関わる機会を得ました。卒業論文は、現代の日本の労働市場の変化についてのものでした。
+            </p>
+        ) : (
+            ''
+        )
+    }
+</div>

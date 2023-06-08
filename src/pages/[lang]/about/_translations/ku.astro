@@ -1,0 +1,49 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+
+<div class="pt-4">
+    <p>
+        {
+            lang == 'ru' ? (
+                <p>
+                    Мне посчастливилось выиграть в конкурсе и быть выбранным для
+                    зачисления на{' '}
+                    <a href="https://drive.google.com/file/d/1CifXLCmfgavvuJcqPXaY-cvcLCOFwokH/view?usp=drive_link">
+                        краткосрочную программу университета Канадзавы
+                    </a>{' '}
+                    в Японии. В рамках этой программы я имел возможность
+                    постоянного общения и сотрудничества со студентами из
+                    Канадзавы во время занятий и совместных проектов. До сих пор
+                    считаю что это была крайне ценная возможность погрузиться в
+                    японскую культуру и академическую среду.
+                </p>
+            ) : lang == 'en' ? (
+                <p>
+                    I was fortunate enough to win a competition and be selected
+                    for enrollment in the{' '}
+                    <a href="https://drive.google.com/file/d/1CifXLCmfgavvuJcqPXaY-cvcLCOFwokH/view?usp=drive_link">
+                        short-term program at Kanazawa University
+                    </a>{' '}
+                    in Japan. Within this program, I had the opportunity for
+                    constant interaction and collaboration with students from
+                    Kanazawa during classes and joint projects. I still consider
+                    it to be an incredibly valuable opportunity to immerse
+                    myself in Japanese culture and the academic environment.
+                </p>
+            ) : lang == 'ja' ? (
+                <p>
+                    私は幸運にもコンテストで勝ち、
+                    <a href="https://drive.google.com/file/d/1CifXLCmfgavvuJcqPXaY-cvcLCOFwokH/view?usp=drive_link">
+                        金沢大学の短期プログラム
+                    </a>
+                    に選ばれました。このプログラムでは、授業や共同プロジェクトの中で金沢の学生と常に交流し、協力する機会を得ることができました。今でも、これは日本の文化や学術環境に没頭する非常に貴重な機会だったと思っています。
+                </p>
+            ) : (
+                ''
+            )
+        }
+    </p>
+</div>

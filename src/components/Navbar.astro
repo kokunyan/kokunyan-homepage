@@ -1,31 +1,30 @@
 ---
-import LanguagePicker from "@components/LanguagePicker";
+import LanguagePicker from '@components/LanguagePicker'
+import Dropdown from './Dropdown.astro'
 
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import Dropdown from "./Dropdown.astro";
+const { lang, t } = Astro.props
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-
-const path = Astro.url.pathname;
-const activePosts = path.includes(`/${lang}/posts`);
-const activeWorks = path.includes(`/${lang}/works`);
-const activeAbout = path.includes(`/${lang}/about`);
+const path = Astro.url.pathname
+const activePosts = path.includes(`/${lang}/posts`)
+const activeWorks = path.includes(`/${lang}/works`)
+const activeAbout = path.includes(`/${lang}/about`)
 ---
 
 <nav
-  class=`${lang === "en" || "ru" ? "font-mono " : "font-japanese"} fixed px-[1.5rem] backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center`
+  class=`fixed px-[1.5rem] backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center z-[100]`
 >
   <div class="inline-flex justify-between items-center w-[635px]">
     <a rel="prefetch" href={`${t(`nav.href`)}`}>
-      <h1 class="text-white max-w-[175px] font-bold">{t(`nav.name`)}</h1>
+      <h1 class=`text-white max-w-[175px] font-bold`>
+        {t(`nav.name`)}
+      </h1>
     </a>
     <div class="flex items-center h-full gap-10">
       <div class="sm:inline-flex h-full hidden">
         <a
           href={`${t(`nav.href`)}works`}
-          class={`${activeWorks ? "bg-white" : ""} ${
-            activeWorks ? "text-black" : "text-white"
+          class={`${activeWorks ? 'bg-white' : ''} ${
+            activeWorks ? 'text-black' : 'text-white'
           } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
         >
           {t(`nav.works`)}
@@ -33,8 +32,8 @@ const activeAbout = path.includes(`/${lang}/about`);
 
         <a
           href={`${t(`nav.href`)}posts`}
-          class={`${activePosts ? "bg-white" : ""} ${
-            activePosts ? "text-black" : "text-white"
+          class={`${activePosts ? 'bg-white' : ''} ${
+            activePosts ? 'text-black' : 'text-white'
           } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
         >
           {t(`nav.posts`)}
@@ -42,15 +41,17 @@ const activeAbout = path.includes(`/${lang}/about`);
 
         <a
           href={`${t(`nav.href`)}about`}
-          class={`${activeAbout ? "bg-white" : ""} ${
-            activeAbout ? "text-black" : "text-white"
+          class={`${activeAbout ? 'bg-white' : ''} ${
+            activeAbout ? 'text-black' : 'text-white'
           } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
         >
           {t(`nav.about`)}
         </a>
       </div>
     </div>
-    <div class="flex items-center gap-7"><LanguagePicker lang={lang} client:load />
-      <Dropdown t={t} /></div>
+    <div class="flex items-center gap-7 z-10">
+      <LanguagePicker lang={lang} client:load />
+      <Dropdown t={t} />
+    </div>
   </div>
 </nav>

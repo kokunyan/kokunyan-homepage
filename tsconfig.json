@@ -1,17 +1,21 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
-    "strictNullChecks": true,
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/components/layouts/*"],
-      "@assets/*": ["public/assets/*"],
-      "@styles/*": ["src/styles/*"],
-      "@lib/*": ["src/lib/*"],
-      "@i18n/*": ["src/i18n/*"]
+    "extends": "astro/tsconfigs/base",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "baseUrl": ".",
+        "strictNullChecks": true,
+        "paths": {
+            "@components/*": ["src/components/*"],
+            "@layouts/*": ["src/components/layouts/*"],
+            "@assets/*": ["public/assets/*"],
+            "@styles/*": ["src/styles/*"],
+            "@i18n/*": ["src/i18n/*"]
+        },
+        "plugins": [
+            {
+                "name": "@astrojs/ts-plugin"
+            }
+        ]
     }
-  }
 }

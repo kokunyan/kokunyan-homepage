@@ -5,7 +5,7 @@ const getLocale = (lang: string) => {
   switch (lang) {
     case "en":
       return "en_US";
-    case "jp":
+    case "ja":
       return "ja_JP";
     case "ru":
       return "ru_RU";
@@ -18,7 +18,7 @@ const getAlternativeLocales = (lang: string) => {
   switch (lang) {
     case "en":
       return ["ru_RU", "ja_JP"];
-    case "jp":
+    case "ja":
       return ["ru_RU", "en_US"];
     case "ru":
       return ["ja_JP", "en_US"];
@@ -31,7 +31,7 @@ const getAuthor = (lang: string) => {
   switch (lang) {
     case "en":
       return "Bogdan Kokunin";
-    case "jp":
+    case "ja":
       return "コクニン ボグダン";
     case "ru":
       return "Богдан Кокунин";

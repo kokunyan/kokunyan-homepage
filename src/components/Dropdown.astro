@@ -1,32 +1,40 @@
 ---
-const { t } = Astro.props;
-
+const { t } = Astro.props
 ---
-<div class="dropdown dropdown-bottom dropdown-end sm:hidden">
+
+<div class="dropdown dropdown-end sm:hidden">
   <label
-        tabindex={0}
-        class="bg-transparent border-none cursor-pointer flex gap-4"
-      >
-      <svg height="38" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="38"><g id="layer1" transform="translate(0,-284.29998)"><path d="m 2.8222223,287.1222 v 1.41111 h 7.0555558 v -1.41111 z m 0,2.82222 v 1.41112 h 7.0555558 v -1.41112 z m 0,2.82223 v 1.41111 h 7.0555558 v -1.41111 z" id="rect4487" style="opacity:1;vector-effect:none;fill:white;fill-opacity:1;stroke:none;stroke-width:0.07055555;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/></g></svg>
-      </label>
-  <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-[250]">
-    <li><a
-      href={`${t(`nav.href`)}works`}
-      class="active:bg-white"
+    tabindex={0}
+    class="bg-transparent border-none cursor-pointer flex gap-4"
+  >
+    <svg height="38" id="svg8" version="1.1" viewBox="0 0 12.7 12.7" width="38"
+      ><g id="layer1" transform="translate(0,-284.29998)"
+        ><path
+          d="m 2.8222223,287.1222 v 1.41111 h 7.0555558 v -1.41111 z m 0,2.82222 v 1.41112 h 7.0555558 v -1.41112 z m 0,2.82223 v 1.41111 h 7.0555558 v -1.41111 z"
+          id="rect4487"
+          style="opacity:1;vector-effect:none;fill:white;fill-opacity:1;stroke:none;stroke-width:0.07055555;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+        ></path></g
+      ></svg
     >
-      {t(`nav.works`)}
-    </a></li>
-    <li><a
-      href={`${t(`nav.href`)}posts`}
-      class="active:bg-white"
-    >
-      {t(`nav.posts`)}
-    </a></li>
-    <li><a
-      href={`${t(`nav.href`)}about`}
-      class="active:bg-white"
-    >
-      {t(`nav.about`)}
-    </a></li>
+  </label>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu p-2 shadow bg-white rounded-box w-52 z-[250] text-black"
+  >
+    <li>
+      <a href={`${t(`nav.href`)}works`} class="active:bg-white">
+        {t(`nav.works`)}
+      </a>
+    </li>
+    <li>
+      <a href={`${t(`nav.href`)}posts`} class="active:bg-white">
+        {t(`nav.posts`)}
+      </a>
+    </li>
+    <li>
+      <a href={`${t(`nav.href`)}about`} class="active:bg-white">
+        {t(`nav.about`)}
+      </a>
+    </li>
   </ul>
 </div>

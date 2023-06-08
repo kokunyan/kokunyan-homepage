@@ -1,0 +1,32 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+<div class="pt-4">
+    {
+        lang == 'ru' ? (
+            <p>
+                Я родился в прекрасном тысячелетнем городе{' '}
+                <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C">
+                    Казань!
+                </a>
+            </p>
+        ) : lang == 'en' ? (
+            <p>
+                I was born in the beautiful thousand-year-old city of{' '}
+                <a href="https://en.wikipedia.org/wiki/Kazan">Kazan!</a>
+            </p>
+        ) : lang == 'ja' ? (
+            <p>
+                私は美しい千年の都、
+                <a href="https://ja.wikipedia.org/wiki/%E3%82%AB%E3%82%B6%E3%83%B3">
+                    カザン
+                </a>
+                で生まれました！
+            </p>
+        ) : (
+            ''
+        )
+    }
+</div>

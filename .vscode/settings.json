@@ -1,19 +1,22 @@
-"files.associations": {
-    "*.mdx": "markdown"
-}
-
 {
+  "files.associations": {
+    "*.mdx": "markdown"
+},
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ],
+
+  
     "prettier.documentSelectors": ["**/*.astro"],
     "[astro]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "astro-build.astro-vscode"
     },
-    "eslint.validate": [
-      "javascript",
-      "javascriptreact",
-      "astro", // Enable .astro
-      "typescript", // Enable .ts
-      "typescriptreact" // Enable .tsx
-    ],
+    
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "workbench.colorTheme": "Monokai",
@@ -22,5 +25,4 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "editor.minimap.enabled": false,
     "git.enableSmartCommit": true
-  }
-  
+}

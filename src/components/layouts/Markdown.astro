@@ -1,40 +1,65 @@
 ---
-import Layout from "@layouts/Layout.astro";
-const { frontmatter, lang, pageType } = Astro.props;
+import Layout from '@layouts/Layout.astro'
+const { frontmatter, lang, pageType } = Astro.props
+import { intlFormat } from 'date-fns'
+
+const accent = frontmatter.accent
 
 interface ImageMetadata {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
+  src: string
+  width: number
+  height: number
+  format: string
 }
 
-const formattedDate = frontmatter.pubDate.toLocaleString(lang);
+const formattedDate = intlFormat(
+  frontmatter.pubDate,
+  {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  },
+  { locale: lang }
+)
 ---
 
-<Layout pageTitle={frontmatter.title} pageDescription={frontmatter.description} pageType={pageType} pagePubDate={formattedDate} >
-  <div>
-    <article
-      class=`text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl`
-    >
-      <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
-      <h1 class="text-2xl">{frontmatter.title}</h1>
-      <span>{frontmatter.pubDate}</span>
-      <slot />
-    </article>
-  </div>
+<Layout
+  pageTitle={frontmatter.title}
+  pageDescription={frontmatter.description}
+  pageType={pageType}
+  pagePubDate={formattedDate}
+>
+  <article
+    class=`text-xl text-white pt-28 pb-28 flex flex-col gap-5 m-auto max-w-2xl`
+  >
+    <img src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    <h1 class="text-5xl pt-6">{frontmatter.title}</h1>
+    <span class="pb-12">{formattedDate}</span>
+    <slot />
+  </article>
 </Layout>
 
 <script define:vars={{ frontmatter }}>
-  const emphasized = document.querySelectorAll("em");
-  const bold = document.querySelectorAll("strong");
+const emphasized = document.querySelectorAll('em')
+const bold = document.querySelectorAll('strong')
 
-  emphasized.forEach((element) => {
-    element.style.background = frontmatter.accent;
-    element.style.color = "black";
-  });
+emphasized.forEach((element) => {
+  element.style.background = frontmatter.accent
+  element.style.color = 'black'
+})
 
-  bold.forEach((element) => {
-    element.style.color = frontmatter.accent;
-  });
+bold.forEach((element) => {
+  element.style.color = frontmatter.accent
+})
 </script>
+
+<style is:global define:vars={{ accent }}>
+  a {
+    color: var(--accent);
+  }
+  h2 {
+    padding: 2rem 0rem;
+    font-size: 2rem;
+  }
+</style>

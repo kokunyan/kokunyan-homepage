@@ -1,24 +1,25 @@
 ---
-const { post, lang } = Astro.props;
-const realSlug = post.slug.split("/")[1];
-const accent = `${post.data.accent}`
+const { post, lang } = Astro.props
+const realSlug = post.slug.split('/')[1]
 ---
 
-<article class="pb-10 ">
+<article class="pb-10">
   <header class="pb-10 flex flex-col">
     <a rel="prefetch" class="mt-[35px]" href=`./posts/${realSlug}`>
       <img src={post.data.image.url} alt={post.data.image.alt} />
-      <h2 class=`text-2xl text-black ${lang === 'jp' && "font-bold"} text-left leading-10 pt-7`>
+      <h2
+        class=`text-2xl text-black ${lang === 'jp' && "font-bold"} text-left leading-10 pt-7`
+      >
         <span
           style={{
             background: `${post.data.accent}`,
-            paddingLeft: "0.4rem",
-            paddingRight: "0.4rem",
-            display: "inline",
-            boxDecorationBreak: "clone",
+            paddingLeft: '0.4rem',
+            paddingRight: '0.4rem',
+            display: 'inline',
+            boxDecorationBreak: 'clone',
           }}
         >
-          {" "}
+          {' '}
           {post.data.title}
         </span>
       </h2>

@@ -1,0 +1,84 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+
+<div class="pt-4">
+    <p>
+        {
+            lang == 'ru' ? (
+                <>
+                    <p>
+                        Уже в детстве я пытался писать простые игры на C#, но с
+                        тех пор прошло много лет, после окончания университета я
+                        сразу же занялся веб-разработкой. За это время я успел
+                        поработать как на бэкенде, так и на фронтенде, используя
+                        различные технологии, а также слегка погрузился в DevOps
+                        (CI/CD).
+                    </p>
+                    <p class="pt-4">
+                        Небольшой список технологий которыми я до сих пор
+                        пользовался:
+                    </p>
+                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
+                        <li>
+                            HTML, CSS (SCSS, Tailwind), JavaScript (TypeScript),
+                            React, Redux Toolkit, Astro, Vite.
+                        </li>
+                        <li>
+                            Linux, Node.js, MongoDB, Docker, Git and GitHub
+                            Actions
+                        </li>
+                    </ul>
+                </>
+            ) : lang == 'en' ? (
+                <>
+                    <p>
+                        Even in my childhood, I attempted to create simple games
+                        in C#, but many years have passed since then. Right
+                        after graduating from university, I immediately delved
+                        into web development. During this time, I have had the
+                        opportunity to work on both the backend and frontend,
+                        utilizing various technologies, and have also dabbled in
+                        DevOps (CI/CD).
+                    </p>
+                    <p class="pt-4">
+                        Here is a brief list of technologies I have been using:
+                    </p>
+                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
+                        <li>
+                            HTML, CSS (SCSS, Tailwind), JavaScript (TypeScript),
+                            React, Redux Toolkit, Astro, Vite.
+                        </li>
+                        <li>
+                            Linux, Node.js, MongoDB, Docker, Git and GitHub
+                            Actions.
+                        </li>
+                    </ul>
+                </>
+            ) : lang == 'ja' ? (
+                <>
+                    <p>
+                        子供の頃から、C#で簡単なゲームを作ろうと試みましたが、それから多くの年月が経ちました。大学を卒業後すぐにウェブ開発に没頭しました。この間に、バックエンドとフロントエンドの両方でさまざまな技術を使って仕事をする機会がありました。また、DevOps（CI/CD）にも少し触れることができました。
+                    </p>
+                    <p class="pt-4">
+                        以下は私が使用している技術の簡単なリストです：
+                    </p>
+                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
+                        <li>
+                            HTML、CSS（SCSS、Tailwind）、JavaScript（TypeScript）、React、Redux
+                            Toolkit、Astro、Vite。
+                        </li>
+                        <li>
+                            Linux, Node.js、MongoDB、Docker、Git, GitHub
+                            Actions。
+                        </li>
+                    </ul>
+                </>
+            ) : (
+                ''
+            )
+        }
+    </p>
+</div>
