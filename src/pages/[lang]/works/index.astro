@@ -1,23 +1,27 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import { useTranslations, getLangFromUrl } from "@i18n/utils";
+import Layout from '@layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import { useTranslations, getLangFromUrl } from '@i18n/utils'
 
-export const prerender = false;
+export const prerender = false
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 
-const mainWorks = await getCollection("works", ({ id, data }) => {
-  return id.startsWith(`${lang}`) && data.art === false;
-});
+const mainWorks = await getCollection('works', ({ id, data }) => {
+  return id.startsWith(`${lang}`) && data.art === false
+})
 
-const artWorks = await getCollection("works", ({ id, data }) => {
-  return id.startsWith(`${lang}`) && data.art === true;
-});
+const artWorks = await getCollection('works', ({ id, data }) => {
+  return id.startsWith(`${lang}`) && data.art === true
+})
 ---
 
-<Layout pageTitle="My Works" pageDescription="My works" pageType="website">
+<Layout
+  pageTitle={t(`page.works`)}
+  pageDescription={t(`description.works`)}
+  pageType="website"
+>
   <div class="py-24 text-white">
     <h2 class="text-5xl pb-10">{t(`works.works`)}</h2><hr />
   </div>
@@ -25,7 +29,11 @@ const artWorks = await getCollection("works", ({ id, data }) => {
   <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
     {
       mainWorks.map((work) => (
-        <a rel="prefetch" href={`./works/${work.slug.split("/")[1]}`} class="pb-10">
+        <a
+          rel="prefetch"
+          href={`./works/${work.slug.split('/')[1]}`}
+          class="pb-10"
+        >
           <img
             src={work.data.image.url}
             alt={work.data.image.alt}
@@ -50,7 +58,11 @@ const artWorks = await getCollection("works", ({ id, data }) => {
   <div class="grid md:grid-cols-2 grid-cols-1 gap-7">
     {
       artWorks.map((art) => (
-        <a rel="prefetch" href={`./works/${art.slug.split("/")[1]}`} class="pb-10">
+        <a
+          rel="prefetch"
+          href={`./works/${art.slug.split('/')[1]}`}
+          class="pb-10"
+        >
           <img
             src={art.data.image.url}
             alt={art.data.image.alt}

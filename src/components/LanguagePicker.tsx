@@ -11,7 +11,7 @@ export default function LanguagePicker() {
     }
 
     return (
-        <div className="dropdown dropdown-end dropdown-hover z-[100]">
+        <div className="dropdown dropdown-end z-[100]">
             <label
                 tabIndex={0}
                 className="bg-transparent border-none cursor-pointer flex gap-4"

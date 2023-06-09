@@ -8,6 +8,15 @@ export const defaultLang = 'en'
 
 export const ui = {
     en: {
+        'page.index': 'Bogdan Kokunin',
+        'page.works': 'Works',
+        'page.posts': 'Posts',
+        'page.about': 'About me',
+        'description.index': "Welcome to Bogdan Kokunin's personal website.",
+        'description.works': "Explore Bogdan Kokunin's latest projects.",
+        'description.posts': "Read Bogdan Kokunin's recent blog posts.",
+        'description.about':
+            "Learn more about Bogdan Kokunin's background and experiences.",
         'nav.href': '/en/',
         'nav.name': 'Bogdan Kokunin',
         'nav.posts': 'Posts',
@@ -32,6 +41,15 @@ export const ui = {
         'more.posts': 'More posts',
     },
     ru: {
+        'page.index': 'Богдан Кокунин',
+        'page.works': 'Работы',
+        'page.posts': 'Посты',
+        'page.about': 'О мне',
+        'description.index':
+            'Добро пожаловать на персональный веб-сайт Богдана Кокунина.',
+        'description.works': 'Изучите последние работы Богдана Кокунина.',
+        'description.posts': 'Читайте недавние публикации Богдана Кокунина.',
+        'description.about': 'Узнайте больше о Богдане Кокунине.',
         'nav.href': '/ru/',
         'nav.name': 'Богдан Кокунин',
         'nav.posts': 'Посты',
@@ -56,6 +74,14 @@ export const ui = {
         'more.posts': 'Больше статей',
     },
     ja: {
+        'page.index': 'コクニン・ボグダン',
+        'page.works': '作品',
+        'page.posts': '記事',
+        'page.about': '私',
+        'description.index': 'ボグダン・コクニンの個人ウェブサイトへようこそ。',
+        'description.works': 'ボグダン・コクニンの最新の作品をご覧ください。',
+        'description.posts': 'ボグダン・コクニンの最近の投稿を読んでください。',
+        'description.about': 'ボグダン・コクニンの経歴について詳しく知る。',
         'nav.href': '/ja/',
         'nav.name': 'コクニン・ボグダン',
         'nav.posts': '記事',

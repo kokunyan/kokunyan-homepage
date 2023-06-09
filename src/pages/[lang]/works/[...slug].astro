@@ -1,19 +1,26 @@
 ---
-import { getEntryBySlug } from "astro:content";
-import MarkdownLayout from "@layouts/Markdown.astro";
-export const prerender = false;
+import { getEntryBySlug } from 'astro:content'
+import MarkdownLayout from '@layouts/Markdown.astro'
+export const prerender = false
 
-const { lang, slug } = Astro.params;
+const { lang, slug } = Astro.params
 
-const page = await getEntryBySlug("works", `${lang}/${slug}`);
+const page = await getEntryBySlug('works', `${lang}/${slug}`)
 
 if (page === undefined) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404')
 }
 
-const { Content, headings } = await page.render();
+const { Content, headings } = await page.render()
 ---
 
-<MarkdownLayout frontmatter={page.data} pageType="article" pageTitle={page.data.title} pageDescription={page.data.description} pageType="article">
+<MarkdownLayout
+  frontmatter={page.data}
+  pageType="article"
+  pageTitle={page.data.title}
+  pageDescription={page.data.description}
+  pageType="article"
+  lang={lang}
+>
   <Content />
 </MarkdownLayout>

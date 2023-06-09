@@ -28,7 +28,11 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<Layout pageTitle={`Posts`} pageDescription="List of posts" pageType="website">
+<Layout
+  pageTitle={t(`page.posts`)}
+  pageDescription={t(`description.posts`)}
+  pageType="website"
+>
   <div class="md:py-[125px] py-[70px] text-center">
     {page.data.map((post) => <BlogPostPreview post={post} lang={lang} />)}
     {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
