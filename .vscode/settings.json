@@ -1,25 +1,24 @@
 {
-  "files.associations": {
-    "*.mdx": "markdown"
-},
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
 
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "astro", // Enable .astro
-    "typescript", // Enable .ts
-    "typescriptreact" // Enable .tsx
-  ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "astro", // Enable .astro
+        "typescript", // Enable .ts
+        "typescriptreact" // Enable .tsx
+    ],
 
-  
     "prettier.documentSelectors": ["**/*.astro"],
     "[astro]": {
-      "editor.defaultFormatter": "astro-build.astro-vscode"
+        "editor.defaultFormatter": "astro-build.astro-vscode"
     },
-    
+
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.iconTheme": "vscode-icons",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
