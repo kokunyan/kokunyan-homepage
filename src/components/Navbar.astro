@@ -11,7 +11,7 @@ const activeAbout = path.includes(`/${lang}/about`)
 ---
 
 <nav
-  class=`fixed px-[1.5rem] backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-12 flex justify-center z-[100]`
+  class=`fixed px-[1.5rem] backdrop-blur-[35px] bg-navbar bg-opacity-10 w-full h-[var(--nav-height)] flex justify-center z-[100]`
 >
   <div class="inline-flex justify-between items-center w-[635px]">
     <a rel="prefetch" href={`${t(`nav.href`)}`}>
@@ -19,7 +19,7 @@ const activeAbout = path.includes(`/${lang}/about`)
         {t(`nav.name`)}
       </h1>
     </a>
-    <div class="flex items-center h-full gap-10">
+    <div class="flex justify-start items-center h-full gap-10">
       <div class="sm:inline-flex h-full hidden">
         <a
           href={`${t(`nav.href`)}works`}
@@ -30,20 +30,20 @@ const activeAbout = path.includes(`/${lang}/about`)
           {t(`nav.works`)}
         </a>
 
-        <a
+        <!-- <a
           href={`${t(`nav.href`)}posts`}
           class={`${activePosts ? 'bg-white' : ''} ${
             activePosts ? 'text-black' : 'text-white'
           } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
         >
           {t(`nav.posts`)}
-        </a>
+        </a> -->
 
         <a
           href={`${t(`nav.href`)}about`}
           class={`${activeAbout ? 'bg-white' : ''} ${
             activeAbout ? 'text-black' : 'text-white'
-          } h-full pt-3 px-[1.5rem] w-[110px] text-center`}
+          } h-full pt-3 px-[1.5rem] w-[150px] text-center`}
         >
           {t(`nav.about`)}
         </a>
