@@ -1,0 +1,212 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+
+<div class="pt-4">
+  <p>
+    {
+      lang == 'ru' ? (
+        <div>
+          <p>
+            Начал работать в небольшом стартапе. Занимаюсь разработкой
+            комплексных IT-решений: создаю веб- и мини-приложения, интегрирую их
+            с оборудованием. Мой опыт охватывает автоматизацию процессов в жилой
+            инфраструктуре, разработку безопасных решений для сложных сетевых
+            задач и интеграцию ПО с аппаратными системами. Подробнее
+            <a
+              class="font-bold text-[#fb8414]"
+              href="https://drive.google.com/file/d/1aMBMMorr-OYQsA183LoQH12HXfiIqNDX/view?usp=sharing"
+            >
+              тут
+            </a>
+          </p>
+          <br />
+          <p2 class="font-bold ">Стек технологий:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>Языки:</strong> <span>JavaScript, TypeScript</span>
+            </li>
+            <li>
+              <strong>Бэкенд:</strong>{' '}
+              <span>Node.js, GraphQL, Apollo, Prisma</span>
+            </li>
+            <li>
+              <strong>Фронтенд:</strong> <span>React, Next.js</span>
+            </li>
+            <li>
+              <strong>Мобильные приложения:</strong>{' '}
+              <span>React Native, Apache Cordova</span>
+            </li>
+            <li>
+              <strong>Базы данных и инфраструкктура:</strong>{' '}
+              <span>
+                Linux, Docker, Nginx, PostgreSQL, Prisma, Git, GitHub, GitHub
+                Actions, GitLab CI/CD
+              </span>
+            </li>
+            <li>
+              <strong>Другие навыки:</strong> <span>Figma, Jira</span>
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold ">Мои достижения:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              Активно участвовал в разработке основного проекта с самого первого
+              дня, формируя его архитектуру и функциональность, а также
+              множество мини-приложений вокруг него
+            </li>
+            <li>
+              Самостоятельно проектировал, разрабатывал и поддерживал
+              высокоэффективный побочный проект, созданный для масштабирования
+              будущей пользовательской базы из 140 000+ человек
+            </li>
+            <li>
+              Разработал и поддерживал сложную синхронизацию с системой контроля
+              физического доступа и другими важными компонентами инфраструктур
+            </li>
+            <li>
+              Диагностировал и рефакторизовал неэффективный устаревший код,
+              который вызывал критические сбои в основном проекте, удвоил
+              производительность и обеспечил стабильность системы
+            </li>
+          </ul>
+        </div>
+      ) : lang == 'en' ? (
+        <div>
+          <p>
+            Started working at a small startup. I develop complex IT solutions:
+            creating web and mini-applications and integrating them with
+            hardware. My experience covers process automation in residential
+            infrastructure, developing secure solutions for complex network
+            challenges, and integrating software with hardware systems. More
+            details
+            <a
+              class="font-bold text-[#fb8414]"
+              href="https://drive.google.com/file/d/1dVBEGAPY718XMVkjZ_-vIhxD1eaWZ4k6/view?usp=sharing"
+            >
+              here
+            </a>
+            .
+          </p>
+          <br />
+          <p2 class="font-bold">Technology Stack:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>Languages:</strong> <span>JavaScript, TypeScript</span>
+            </li>
+            <li>
+              <strong>Backend:</strong>{' '}
+              <span>Node.js, GraphQL, Apollo, Prisma</span>
+            </li>
+            <li>
+              <strong>Frontend:</strong> <span>React, Next.js</span>
+            </li>
+            <li>
+              <strong>Mobile Applications:</strong>{' '}
+              <span>React Native, Apache Cordova</span>
+            </li>
+            <li>
+              <strong>Databases & Infrastructure:</strong>{' '}
+              <span>
+                Linux, Docker, Nginx, PostgreSQL, Prisma, Git, GitHub, GitHub
+                Actions, GitLab CI/CD
+              </span>
+            </li>
+            <li>
+              <strong>Other Skills:</strong> <span>Figma, Jira</span>
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold">My Achievements:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              Actively participated in the development of the core project from
+              day one, shaping its architecture and functionality, as well as
+              multiple mini-apps around it.
+            </li>
+            <li>
+              Independently designed, developed, and maintained a highly
+              efficient side project, created to scale a future user base of
+              140,000+ people.
+            </li>
+            <li>
+              Developed and maintained complex synchronization with the physical
+              access control system and other crucial infrastructure components.
+            </li>
+            <li>
+              Diagnosed and refactored inefficient legacy code that caused
+              critical failures in the main project, doubling performance and
+              ensuring system stability.
+            </li>
+          </ul>
+        </div>
+      ) : lang == 'ja' ? (
+        <div>
+          <p>
+            小さなスタートアップで働き始めました。
+            私は複雑なITソリューションの開発を担当し、Webおよびミニアプリを作成し、ハードウェアと統合しています。
+            私の経験は、住宅インフラのプロセス自動化、複雑なネットワーク課題に対するセキュアなソリューションの開発、ソフトウェアとハードウェアシステムの統合に及びます。
+            詳しくは
+            <a
+              class="font-bold text-[#fb8414]"
+              href="https://drive.google.com/file/d/1dVBEGAPY718XMVkjZ_-vIhxD1eaWZ4k6/view?usp=sharing"
+            >
+              こちら
+            </a>
+            。
+          </p>
+          <br />
+          <p2 class="font-bold">技術スタック:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>プログラミング言語:</strong>{' '}
+              <span>JavaScript, TypeScript</span>
+            </li>
+            <li>
+              <strong>バックエンド:</strong>{' '}
+              <span>Node.js, GraphQL, Apollo, Prisma</span>
+            </li>
+            <li>
+              <strong>フロントエンド:</strong> <span>React, Next.js</span>
+            </li>
+            <li>
+              <strong>モバイルアプリ:</strong>{' '}
+              <span>React Native, Apache Cordova</span>
+            </li>
+            <li>
+              <strong>データベース＆インフラ:</strong>{' '}
+              <span>
+                Linux, Docker, Nginx, PostgreSQL, Prisma, Git, GitHub, GitHub
+                Actions, GitLab CI/CD
+              </span>
+            </li>
+            <li>
+              <strong>その他のスキル:</strong> <span>Figma, Jira</span>
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold">私の実績:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              初日からコアプロジェクトの開発に積極的に参加し、そのアーキテクチャと機能を構築し、さらに複数のミニアプリを開発しました。
+            </li>
+            <li>
+              将来の140,000人以上のユーザーベースの拡張を目的とした、高効率なサイドプロジェクトを独自に設計、開発、維持しました。
+            </li>
+            <li>
+              物理的アクセス制御システムやその他の重要なインフラコンポーネントとの複雑な同期を開発・維持しました。
+            </li>
+            <li>
+              メインプロジェクトで重大な障害を引き起こしていた非効率なレガシーコードを診断・リファクタリングし、パフォーマンスを2倍に向上させ、システムの安定性を確保しました。
+            </li>
+          </ul>
+        </div>
+      ) : (
+        ''
+      )
+    }
+  </p>
+</div>

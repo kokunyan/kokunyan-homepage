@@ -5,80 +5,70 @@ const { lang } = Astro.props
 <hr class="text-[#CBCBCB]" />
 
 <div class="pt-4">
-    <p>
-        {
-            lang == 'ru' ? (
-                <>
-                    <p>
-                        Уже в детстве я пытался писать простые игры на C#, но с
-                        тех пор прошло много лет, после окончания университета я
-                        сразу же занялся веб-разработкой. За это время я успел
-                        поработать как на бэкенде, так и на фронтенде, используя
-                        различные технологии, а также слегка погрузился в DevOps
-                        (CI/CD).
-                    </p>
-                    <p class="pt-4">
-                        Небольшой список технологий которыми я до сих пор
-                        пользовался:
-                    </p>
-                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
-                        <li>
-                            HTML, CSS (SCSS, Tailwind), JavaScript (TypeScript),
-                            React, Redux Toolkit, Astro, Vite.
-                        </li>
-                        <li>
-                            Linux, Node.js, MongoDB, Docker, Git and GitHub
-                            Actions
-                        </li>
-                    </ul>
-                </>
-            ) : lang == 'en' ? (
-                <>
-                    <p>
-                        Even in my childhood, I attempted to create simple games
-                        in C#, but many years have passed since then. Right
-                        after graduating from university, I immediately delved
-                        into web development. During this time, I have had the
-                        opportunity to work on both the backend and frontend,
-                        utilizing various technologies, and have also dabbled in
-                        DevOps (CI/CD).
-                    </p>
-                    <p class="pt-4">
-                        Here is a brief list of technologies I have been using:
-                    </p>
-                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
-                        <li>
-                            HTML, CSS (SCSS, Tailwind), JavaScript (TypeScript),
-                            React, Redux Toolkit, Astro, Vite.
-                        </li>
-                        <li>
-                            Linux, Node.js, MongoDB, Docker, Git and GitHub
-                            Actions.
-                        </li>
-                    </ul>
-                </>
-            ) : lang == 'ja' ? (
-                <>
-                    <p>
-                        子供の頃から、C#で簡単なゲームを作ろうと試みましたが、それから多くの年月が経ちました。大学を卒業後すぐにウェブ開発に没頭しました。この間に、バックエンドとフロントエンドの両方でさまざまな技術を使って仕事をする機会がありました。また、DevOps（CI/CD）にも少し触れることができました。
-                    </p>
-                    <p class="pt-4">
-                        以下は私が使用している技術の簡単なリストです：
-                    </p>
-                    <ul class="list-disc flex flex-col gap-4 list-inside pt-4">
-                        <li>
-                            HTML、CSS（SCSS、Tailwind）、JavaScript（TypeScript）、React、Redux
-                            Toolkit、Astro、Vite。
-                        </li>
-                        <li>
-                            Linux, Node.js、MongoDB、Docker、Git, GitHub
-                            Actions。
-                        </li>
-                    </ul>
-                </>
-            ) : (
-                ''
-            )
-        }
-    </p>
+  <p>
+    {
+      lang == 'ru' ? (
+        <>
+          <p>
+            На последнем курсе обучения в университете я начал заниматься
+            разработкой – это помогало мне с учебой, создавало альтернативный
+            карьерный путь, да и просто удовлетворяло мою любопытность.
+          </p>
+          <br />
+          <p>
+            Все начиналось с редактирования верстки в софте для интервального
+            повторения -
+            <a
+              class="font-bold text-[#1f9de8]"
+              href="https://apps.ankiweb.net/"
+            >
+              Anki
+            </a>
+            , и пришло к тому что я менял опенсорсный код аддонов для этого
+            софта.
+          </p>
+        </>
+      ) : lang == 'en' ? (
+        <>
+          <p>
+            In my final year at university, I started doing development - it
+            helped me with my studies, created an alternative career path, and
+            naturally satisfied my curiosity.
+          </p>
+          <br />
+          <p>
+            It all started with editing the layout in the software for interval
+            repetition -{' '}
+            <a
+              class="font-bold text-[#1f9de8]"
+              href="https://apps.ankiweb.net/"
+            >
+              Anki
+            </a>{' '}
+            , and came to the fact that I changed the code of open source addons
+            for this software.
+          </p>
+        </>
+      ) : lang == 'ja' ? (
+        <>
+          <p>
+            大学の最終学年になると、開発の勉強を始めた。大学の勉強の助けになったし、別のキャリアパスができた。
+          </p>
+          <br />
+          <p>
+            それは、インターバル反復練習のための
+            <a
+              class="font-bold text-[#1f9de8]"
+              href="https://apps.ankiweb.net/"
+            >
+              Anki
+            </a>
+            ソフトウェアのレイアウトを編集することから始まり、このソフトウェアのアドオンのオープンソースコードを変更するところまで来た。
+          </p>
+        </>
+      ) : (
+        ''
+      )
+    }
+  </p>
 </div>

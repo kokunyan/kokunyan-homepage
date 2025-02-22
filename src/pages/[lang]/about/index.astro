@@ -4,15 +4,15 @@ import Born from './_translations/born.astro'
 import KFU from './_translations/kfu.astro'
 import KU from './_translations/ku.astro'
 import Coding from './_translations/coding.astro'
+import FirstWork from './_translations/firstWork.astro'
+import SecondWork from './_translations/secondWork.astro'
 
 export async function getStaticPaths() {
   const paths = ['en', 'ja', 'ru'].map((language) => {
     return { params: { lang: language } }
   })
-
   return paths
 }
-
 import { getLangFromUrl, useTranslations } from '@i18n/utils'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -23,58 +23,153 @@ const t = useTranslations(lang)
   pageDescription={t(`description.about`)}
   pageType="profile"
 >
-  <div class="h-screen flex items-center">
-    <div class="flex flex-col gap-5">
+  <div class="min-h-screen py-20 flex flex-col items-center">
+    <div class="flex flex-col gap-5 w-[670px] max-w-full">
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title text-xl font-medium flex justify-between">
-          <h2>🐤 {t(`about.bornTitle`)}</h2>
-          <span>{t(`about.bornDate`)}</span>
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4">🐤 {t(`about.bornTitle`)}</h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.bornDate`)}</span
+            >
+          </div>
         </div>
         <div class="collapse-content">
           <Born lang={lang} />
         </div>
       </div>
+
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title text-xl font-medium flex justify-between">
-          <h2 class="">🎓 {t(`about.kfuTitle`)}</h2>
-          <span class="">{t(`about.kfuDate`)}</span>
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4">🎓 {t(`about.kfuTitle`)}</h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.kfuDate`)}</span
+            >
+          </div>
         </div>
         <div class="collapse-content">
           <KFU lang={lang} />
         </div>
       </div>
+
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title text-xl font-medium flex justify-between">
-          <h2>🇯🇵 {t(`about.kuTitle`)}</h2>
-          <span>{t(`about.kuDate`)}</span>
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4">🇯🇵 {t(`about.kuTitle`)}</h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.kuDate`)}</span
+            >
+          </div>
         </div>
         <div class="collapse-content">
           <KU lang={lang} />
         </div>
       </div>
+
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" checked="checked" />
-        <div class="collapse-title text-xl font-medium flex justify-between">
-          <h2>👨‍💻 {t(`about.codingTitle`)}</h2>
-          <span>{t(`about.codingDate`)}</span>
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4">👨‍💻 {t(`about.codingTitle`)}</h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.codingDate`)}</span
+            >
+          </div>
         </div>
         <div class="collapse-content">
           <Coding lang={lang} />
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4 flex flex-row gap-4">
+              <image width="15px" height="25px" src="/BM.svg" />
+              {t(`about.firstWorkTitle`)}
+            </h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.firstWorkDate`)}</span
+            >
+          </div>
+        </div>
+        <div class="collapse-content">
+          <FirstWork lang={lang} />
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-primary text-black">
+        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <div class="collapse-title text-xl font-medium">
+          <div class="flex justify-between flex-wrap gap-y-2">
+            <h2 class="mr-4 flex flex-row gap-2">
+              <image width="20px" height="20px" src="/CC.svg" />
+              {t(`about.secondWorkTitle`)}
+            </h2>
+            <span class="opacity-70 text-base sm:text-xl"
+              >{t(`about.secondWorkDate`)}</span
+            >
+          </div>
+        </div>
+        <div class="collapse-content">
+          <SecondWork lang={lang} />
         </div>
       </div>
     </div>
   </div>
 </Layout>
 
-<style is:inline>
-  a {
-    color: #ff3e00;
-    z-index: 1000;
+<style>
+  .collapse-content {
+    max-height: 70vh;
+    overflow-y: auto;
   }
-  div {
-    z-index: 0;
+
+  .collapse-title {
+    word-break: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .collapse-title h2 {
+      width: 100%;
+    }
+
+    .collapse-title span {
+      width: 100%;
+      padding-left: 2rem; /* Add left padding to align with the emoji */
+    }
   }
 </style>
+
+<script>
+  function scrollToCenter(element) {
+    const elementRect = element.getBoundingClientRect()
+    const absoluteElementTop = elementRect.top + window.pageYOffset
+    const middle =
+      absoluteElementTop - window.innerHeight / 2 + elementRect.height / 2
+    window.scrollTo({
+      top: middle,
+      behavior: 'smooth',
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const radios = document.querySelectorAll('.accordion-radio')
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          const collapseElement = e.target.closest('.collapse')
+          setTimeout(() => {
+            scrollToCenter(collapseElement)
+          }, 100)
+        }
+      })
+    })
+  })
+</script>

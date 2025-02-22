@@ -1,0 +1,154 @@
+---
+const { lang } = Astro.props
+---
+
+<hr class="text-[#CBCBCB]" />
+
+<div class="pt-4">
+  <p>
+    {
+      lang == 'ru' ? (
+        <div>
+          <p>
+            Начал работать в компании Belucci Mebel в качестве Full-Stack
+            разработчика. Мой опыт охватил разработку веб-приложений,
+            оптимизацию баз данных и настройку CI/CD. Подробнее
+            <a
+              class="font-bold text-[#42546d]"
+              href={`http://localhost:3000/${lang}/works/beluccimebel`}
+            >
+              здесь
+            </a>
+          </p>
+          <br />
+          <p2 class="font-bold">Стек технологий:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>Frontend:</strong> HTML, CSS (SCSS, TailwindCSS),
+              JavaScript, TypeScript, React, Redux Toolkit, Next.js, Astro,
+              Webpack, Vite
+            </li>
+            <li>
+              <strong>Backend:</strong> NodeJS, Express, MongoDB, Mongoose, REST
+              API, GraphQL
+            </li>
+            <li>
+              <strong>Другие навыки:</strong> JWT, Axios, Git, GitHub, Docker,
+              CI/CD, Jest, i18n, ESLint, Prettier, Figma
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold">Мои достижения:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              Перенес оффлайн-бизнес в интернет, обеспечив клиентам удобный
+              доступ к{' '}
+              <a class="underline" href="https://beluccimebel.ru/">
+                каталогу товаров
+              </a>
+            </li>
+            <li>
+              Оптимизировал бизнес-логику компании, обеспечив стабильное
+              обновление базы данных
+            </li>
+            <li>
+              Настроил CI/CD конвейер, чтобы сосредоточить внимание на
+              бизнес-требованиях, качестве кода и безопасности
+            </li>
+          </ul>
+        </div>
+      ) : lang == 'en' ? (
+        <div>
+          <p>
+            Started working at Belucci Mebel as a Full-Stack Developer. My
+            experience covers web application development, database
+            optimization, and CI/CD setup. More details
+            <a
+              class="font-bold text-[#42546d]"
+              href={`http://localhost:3000/${lang}/works/beluccimebel`}
+            >
+              here
+            </a>
+          </p>
+          <br />
+          <p2 class="font-bold">Technology Stack:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>Frontend:</strong> HTML, CSS (SCSS, TailwindCSS),
+              JavaScript, TypeScript, React, Redux Toolkit, Next.js, Astro,
+              Webpack, Vite
+            </li>
+            <li>
+              <strong>Backend:</strong> NodeJS, Express, MongoDB, Mongoose, REST
+              API, GraphQL
+            </li>
+            <li>
+              <strong>Other Skills:</strong> JWT, Axios, Git, GitHub, Docker,
+              CI/CD, Jest, i18n, ESLint, Prettier, Figma
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold">My Achievements:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              Moved an offline business online, providing customers with an easy
+              and convenient way to interact with the product catalog.
+            </li>
+            <li>
+              Optimized the company's business logic to ensure consistent
+              database updates.
+            </li>
+            <li>
+              Implemented a CI/CD pipeline to shift the focus from application
+              deployment to business requirements, code quality, and security.
+            </li>
+          </ul>
+        </div>
+      ) : lang == 'ja' ? (
+        <div>
+          <p>
+            Belucci Mebelのフルスタック開発者として働き始めました。 詳しくは
+            <a
+              class="font-bold text-[#42546d]"
+              href={`http://localhost:3000/${lang}/works/beluccimebel`}
+            >
+              こちら
+            </a>
+            。
+          </p>
+          <br />
+          <p2 class="font-bold">技術スタック:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              <strong>フロントエンド:</strong> JavaScript, TypeScript, React,
+              Redux Toolkit, Astro, SCSS, TailwindCSS, Astro, Webpack, Vite
+            </li>
+            <li>
+              <strong>バックエンド:</strong> NodeJS, Express, REST API MongoDB,
+              Mongoose,
+            </li>
+            <li>
+              <strong>その他のスキル:</strong> JWT, Git, GitHub, Docker, CI/CD,
+              i18n, ESLint, Prettier, Figma
+            </li>
+          </ul>
+          <br />
+          <p2 class="font-bold">実績:</p2>
+          <ul class="list-disc pt-3 pl-4">
+            <li>
+              オフラインビジネスをオンラインに移行し、顧客が商品カタログを簡単に利用できるようにしました。
+            </li>
+            <li>
+              ビジネスロジックを最適化し、データベースの更新を安定化しました。
+            </li>
+            <li>
+              CI/CDパイプラインを導入し、デプロイメントではなくビジネス要件、コード品質、セキュリティに集中できるようにしました。
+            </li>
+          </ul>
+        </div>
+      ) : (
+        ''
+      )
+    }
+  </p>
+</div>

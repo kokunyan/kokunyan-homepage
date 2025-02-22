@@ -32,9 +32,13 @@ const t = useTranslations(lang)
     <ul class="flex flex-col text-center pb-10">
       <li><a href=`/${lang}/about`>{t(`main.linkAbout`)}</a></li>
       <li class=`${lang === "ja" && "order-first"}`>
-        <a href=`/${lang}/works`>{t(`main.linkWorks`)}</a>
+        <a href=`/${lang}/works`
+          >{t(`main.linkWorks`)}
+          <br />
+          {t(`main.linkPosts`)}</a
+        >
       </li>
-      <li><a href=`/${lang}/posts`>{t(`main.linkPosts`)}</a></li>
+      <!-- <li><a href=`/${lang}/posts`>{t(`main.linkPosts`)}</a></li> -->
     </ul>
     <ul class="flex items-center gap-5">
       <li>
