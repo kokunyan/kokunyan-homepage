@@ -26,7 +26,7 @@ const t = useTranslations(lang)
   <div class="min-h-screen py-20 flex flex-col items-center">
     <div class="flex flex-col gap-5 w-[670px] max-w-full">
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2>🐤 {t(`about.bornTitle`)}</h2>
@@ -41,7 +41,7 @@ const t = useTranslations(lang)
       </div>
 
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2>🎓 {t(`about.kfuTitle`)}</h2>
@@ -56,7 +56,7 @@ const t = useTranslations(lang)
       </div>
 
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2>🇯🇵 {t(`about.kuTitle`)}</h2>
@@ -71,7 +71,7 @@ const t = useTranslations(lang)
       </div>
 
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2>👨‍💻 {t(`about.codingTitle`)}</h2>
@@ -86,7 +86,7 @@ const t = useTranslations(lang)
       </div>
 
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2 class="flex items-center flex-row gap-4">
@@ -109,7 +109,7 @@ const t = useTranslations(lang)
       </div>
 
       <div class="collapse collapse-arrow bg-primary text-black">
-        <input type="radio" name="my-accordion-2" class="accordion-radio" />
+        <input type="checkbox" name="my-accordion-2" class="accordion-checkbox" />
         <div class="collapse-title text-xl font-medium">
           <div class="flex justify-between flex-wrap gap-y-2">
             <h2 class="flex items-center flex-row gap-2">
@@ -198,10 +198,10 @@ const t = useTranslations(lang)
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const radios = document.querySelectorAll('.accordion-radio')
+    const checkboxes = document.querySelectorAll('.accordion-checkbox')
 
-    radios.forEach((radio) => {
-      radio.addEventListener('change', (e) => {
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (e) => {
         if (e.target.checked) {
           const collapseElement = e.target.closest('.collapse')
           setTimeout(() => {
