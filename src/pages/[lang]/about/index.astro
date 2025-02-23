@@ -131,18 +131,26 @@ const t = useTranslations(lang)
 
 <style>
   .collapse {
-    max-width: 100vw;
-    overflow-x: hidden;
-    position: relative; /* This can help with iOS positioning */
-    -webkit-transform: translateZ(0);
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
   }
 
   .collapse-content {
-    overflow-y: auto;
+    max-height: none;
+    height: auto;
+    overflow-y: visible;
+    padding-bottom: 1rem; /* Add some padding at bottom */
+  
+    @supports (-webkit-touch-callout: none) {
+      overscroll-behavior: none;
+      -webkit-overflow-scrolling: auto;
+    }
+  }
 
-    @media (max-width: 767px) {
-      max-height: 60vh;
-      -webkit-overflow-scrolling: touch; /* Improve scroll on iOS */
+  @media (max-width: 767px) {
+    .collapse-content {
+      max-height: none;
     }
   }
 
@@ -156,9 +164,8 @@ const t = useTranslations(lang)
   }
 
   .collapse-content > * {
-    max-width: 100%;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
   }
 
   .collapse-title {
